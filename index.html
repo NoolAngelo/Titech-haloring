@@ -1214,21 +1214,27 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
       </div>
     </footer>
 
-    <!-- a little JS for the mobile nav button -->
-    <script>
-      if (document.getElementById("nav-mobile-btn")) {
-        document
-          .getElementById("nav-mobile-btn")
-          .addEventListener("click", function () {
-            if (this.classList.contains("close")) {
-              document.getElementById("nav").classList.add("hidden");
-              this.classList.remove("close");
-            } else {
-              document.getElementById("nav").classList.remove("hidden");
-              this.classList.add("close");
-            }
-          });
-      }
-    </script>
-  </body>
+    <!-- Improved JavaScript for the Mobile Nav Button -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navBtn = document.getElementById("nav-mobile-btn");
+    const nav = document.getElementById("nav");
+
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("hidden");
+
+        if (isOpen) {
+          navBtn.classList.remove("close");
+          navBtn.setAttribute("aria-expanded", "false");
+        } else {
+          navBtn.classList.add("close");
+          navBtn.setAttribute("aria-expanded", "true");
+        }
+      });
+    }
+  });
+</script>
+</body>
 </html>
+
