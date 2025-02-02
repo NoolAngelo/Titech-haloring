@@ -3,34 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Halo Ring - A convenient, secure, and stylish way to simplify your payment experience." />
+    <meta name="keywords" content="Halo Ring, Contactless Payment, TiTech, Secure Payment, Wearable Technology" />
+    <meta name="author" content="TiTech" />
     <title>Halo Ring - TiTech</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="icon" href="img/TITECH.png" type="imagex/icon">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css"
     />
-    <!-- Small CSS to Hide elements at 1520px size -->
-    <style>
-      @media (max-width: 1520px) {
-        .left-svg {
-          display: none;
-        }
-      }
-
-      /* small css for the mobile nav close */
-      #nav-mobile-btn.close span:first-child {
-        transform: rotate(45deg);
-        top: 4px;
-        position: relative;
-        background: #a0aec0;
-      }
-
-      #nav-mobile-btn.close span:nth-child(2) {
-        transform: rotate(-45deg);
-        margin-top: 0px;
-        background: #a0aec0;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="overflow-x-hidden antialiased">
     <!-- Header Section -->
@@ -49,6 +32,7 @@
         <nav
           id="nav"
           class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
+          aria-label="Main Navigation"
         >
           <a
             href="index.html"
@@ -185,6 +169,8 @@
         <div
           id="nav-mobile-btn"
           class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10"
+          aria-expanded="false"
+          aria-controls="nav"
         >
           <span
             class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"
@@ -307,6 +293,7 @@
           >
             <img
               src="img/matte_no_bg.png"
+              alt="Halo Ring Image"
               class="w-full h-auto mt-20 mb-20 ml-0 lg:mt-24 xl:mt-40 lg:mb-0 lg:h-full lg:-ml-12"
             />
           </div>
@@ -1214,26 +1201,8 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
       </div>
     </footer>
 
-    <!-- Improved JavaScript for the Mobile Nav Button -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const navBtn = document.getElementById("nav-mobile-btn");
-    const nav = document.getElementById("nav");
-
-    if (navBtn && nav) {
-      navBtn.addEventListener("click", function () {
-        const isOpen = nav.classList.toggle("hidden");
-
-        if (isOpen) {
-          navBtn.classList.remove("close");
-          navBtn.setAttribute("aria-expanded", "false");
-        } else {
-          navBtn.classList.add("close");
-          navBtn.setAttribute("aria-expanded", "true");
-        }
-      });
-    }
-  });
-</script>
+    <script src="mobileNav.js"></script>
+    <script src="webgazer.js"></script>
+    <script src="eyetracking.js"></script>
 </body>
 </html>
