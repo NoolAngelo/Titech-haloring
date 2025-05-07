@@ -1,0 +1,68 @@
+/* Mobile navigation styles */
+@media (max-width: 1520px) {
+  .left-svg {
+    display: none;
+  }
+}
+
+/* Mobile navigation button */
+#nav-mobile-btn.close span:first-child {
+  transform: rotate(45deg);
+  top: 4px;
+  position: relative;
+  background: #a0aec0;
+}
+
+#nav-mobile-btn.close span:nth-child(2) {
+  transform: rotate(-45deg);
+  margin-top: 0px;
+  background: #a0aec0;
+}
+
+/* Custom brand color classes */
+.text-fabc6b {
+  color: #fabc6b;
+}
+
+.border-fabc6b {
+  border-color: #fabc6b;
+}
+
+.bg-fabc6b {
+  background-color: #fabc6b;
+}
+
+/* Transitions */
+.transition-color {
+  transition: color 0.3s ease;
+}
+
+/* Form focus styles */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #fabc6b;
+  box-shadow: 0 0 0 1px #fabc6b;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #fabc6b;
+  outline-offset: 2px;
+}

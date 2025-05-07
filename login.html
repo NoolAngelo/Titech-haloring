@@ -3,8 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Login to your Halo Ring account - Manage your contactless payment device."
+    />
+    <meta
+      name="keywords"
+      content="Halo Ring, Login, TiTech, Account Management"
+    />
     <title>Login - Halo Ring - TiTech</title>
-    <link rel="icon" href="img/TITECH.png" type="image/x-icon" />
+    <link rel="icon" href="img/TITECH.png" type="image/png" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link
       rel="stylesheet"
@@ -19,7 +27,7 @@
         class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0"
       >
         <a
-          href="/"
+          href="index.html"
           class="relative flex items-center inline-block h-5 h-full font-black leading-none"
         >
           <img src="img/TITECH.png" alt="Titech Logo" class="w-12 h-12" />
@@ -381,14 +389,6 @@
       </div>
     </footer>
 
-    <script>
-      const navBtn = document.getElementById("nav-mobile-btn");
-      const nav = document.getElementById("nav");
-
-      navBtn.addEventListener("click", () => {
-        nav.classList.toggle("hidden");
-        navBtn.classList.toggle("close");
-      });
-    </script>
+    <script src="mobileNav.js"></script>
   </body>
 </html>

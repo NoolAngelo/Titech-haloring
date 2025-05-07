@@ -1,13 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
+/**
+ * Mobile navigation functionality for Halo Ring website
+ * Handles toggling the mobile menu and button states
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
   const navBtn = document.getElementById("nav-mobile-btn");
   const nav = document.getElementById("nav");
 
   if (navBtn && nav) {
     navBtn.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("hidden");
-
-      navBtn.classList.toggle("close", !isOpen);
-      navBtn.setAttribute("aria-expanded", String(!isOpen));
+      nav.classList.toggle("hidden");
+      navBtn.classList.toggle("close");
     });
   }
 });

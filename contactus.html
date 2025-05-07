@@ -3,34 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Halo Ring - TiTech</title>
+    <title>Contact Us - Halo Ring - TiTech</title>
     <link rel="icon" href="img/TITECH.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css"
     />
-    <!-- Small CSS to Hide elements at 1520px size -->
-    <style>
-      @media (max-width: 1520px) {
-        .left-svg {
-          display: none;
-        }
-      }
-
-      /* small css for the mobile nav close */
-      #nav-mobile-btn.close span:first-child {
-        transform: rotate(45deg);
-        top: 4px;
-        position: relative;
-        background: #a0aec0;
-      }
-
-      #nav-mobile-btn.close span:nth-child(2) {
-        transform: rotate(-45deg);
-        margin-top: 0px;
-        background: #a0aec0;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="overflow-x-hidden antialiased">
     <!-- Header Section -->
@@ -39,7 +18,7 @@
         class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0"
       >
         <a
-          href="/"
+          href="index.html"
           class="relative flex items-center inline-block h-5 h-full font-black leading-none"
         >
           <img src="img/TITECH.png" alt="Titech Logo" class="w-12 h-12" />
@@ -172,11 +151,9 @@
         >
           <span
             class="w-6 h-1 mb-1 duration-100 ease-in-out transform bg-gray-800 rounded-full"
-            style="transition: 0.3s all"
           ></span>
           <span
             class="w-6 h-1 duration-100 ease-in-out transform bg-gray-800 rounded-full"
-            style="transition: 0.3s all"
           ></span>
         </div>
       </div>
@@ -425,14 +402,6 @@
       </div>
     </footer>
 
-    <script>
-      const navBtn = document.getElementById("nav-mobile-btn");
-      const nav = document.getElementById("nav");
-
-      navBtn.addEventListener("click", () => {
-        nav.classList.toggle("hidden");
-        navBtn.classList.toggle("close");
-      });
-    </script>
+    <script src="mobileNav.js"></script>
   </body>
 </html>
