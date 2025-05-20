@@ -1,3 +1,90 @@
+/* Dark mode variables */
+:root {
+  /* Light mode (default) */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f7fafc;
+  --color-text-primary: #1a202c;
+  --color-text-secondary: #4a5568;
+  --color-accent: #fabc6b;
+  --color-accent-hover: #f6ad4b;
+  --color-border: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode class */
+.dark-mode {
+  --color-bg-primary: #1a202c;
+  --color-bg-secondary: #2d3748;
+  --color-text-primary: #f7fafc;
+  --color-text-secondary: #e2e8f0;
+  --color-accent: #fabc6b;
+  --color-accent-hover: #f6ad4b;
+  --color-border: #4a5568;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bg-white {
+  background-color: var(--color-bg-primary);
+}
+
+.bg-gray-50 {
+  background-color: var(--color-bg-secondary);
+}
+
+.text-gray-900 {
+  color: var(--color-text-primary);
+}
+
+.text-gray-700,
+.text-gray-600,
+.text-gray-500 {
+  color: var(--color-text-secondary);
+}
+
+.border-gray-200 {
+  border-color: var(--color-border);
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Adjust dark mode toggle position on mobile */
+@media (max-width: 767px) {
+  .dark-mode-toggle {
+    top: 20px;
+    right: 75px; /* Move it to the left of the mobile menu button */
+  }
+}
+
 /* Mobile navigation styles */
 @media (max-width: 1520px) {
   .left-svg {

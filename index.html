@@ -283,6 +283,22 @@
             class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"
           ></span>
         </div>
+
+        <!-- Dark Mode Toggle -->
+        <button
+          id="dark-mode-toggle"
+          aria-label="Toggle Dark Mode"
+          class="dark-mode-toggle hidden md:flex"
+        >
+          <!-- Sun icon for light mode -->
+          <svg id="light-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+          </svg>
+          <!-- Moon icon for dark mode -->
+          <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+          </svg>
+        </button>
       </div>
     </header>
     <!-- End Header Section-->
@@ -1291,6 +1307,114 @@
 
 <!--End Our Team-->
 
+<!-- Social Proof Counter Section -->
+<section class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-8">
+      <h2 class="text-base font-semibold text-amber-600 uppercase tracking-wider">Our Growth</h2>
+      <p class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">Join Our Community</p>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 text-center">
+      <!-- Waitlist Members -->
+      <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md">
+        <div class="flex justify-center">
+          <div class="text-amber-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+        </div>
+        <div class="counter font-bold text-4xl text-gray-900 mb-2" data-target="15000">0</div>
+        <div class="text-gray-600 font-medium">Waitlist Members</div>
+      </div>
+      
+      <!-- Countries -->
+      <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md">
+        <div class="flex justify-center">
+          <div class="text-amber-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </div>
+        <div class="counter font-bold text-4xl text-gray-900 mb-2" data-target="25">0</div>
+        <div class="text-gray-600 font-medium">Countries</div>
+      </div>
+      
+      <!-- Partnerships -->
+      <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md">
+        <div class="flex justify-center">
+          <div class="text-amber-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+            </svg>
+          </div>
+        </div>
+        <div class="counter font-bold text-4xl text-gray-900 mb-2" data-target="50">0</div>
+        <div class="text-gray-600 font-medium">Partnerships</div>
+      </div>
+      
+      <!-- Launch Date -->
+      <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md">
+        <div class="flex justify-center">
+          <div class="text-amber-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+        </div>
+        <div class="font-bold text-4xl text-gray-900 mb-2">Q2</div>
+        <div class="text-gray-600 font-medium">Launch Date 2024</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Counter Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200; // The lower the faster
+      
+      const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        
+        // Calculate increment per interval
+        const increment = target / speed;
+        
+        const updateCount = () => {
+          count += increment;
+          
+          // Check if target is reached
+          if (count < target) {
+            counter.innerText = Math.ceil(count).toLocaleString();
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target.toLocaleString();
+          }
+        };
+        
+        updateCount();
+      };
+      
+      // Intersection Observer for triggering the animation when in viewport
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+    });
+  </script>
+</section>
+
 <!-- Start FAQ Section -->
 <section id="faq" class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0">
   <div class="container mx-auto max-w-4xl">
@@ -1380,6 +1504,11 @@
       // Toggle the hidden class on the content
       content.classList.toggle('hidden');
       
+      // Update ARIA attributes for accessibility
+      const isExpanded = element.classList.contains('active');
+      element.setAttribute('aria-expanded', isExpanded);
+      content.setAttribute('aria-hidden', !isExpanded);
+      
       // Rotate the icon when active
       const icon = element.querySelector('.faq-icon');
       if (element.classList.contains('active')) {
@@ -1388,6 +1517,23 @@
         icon.style.transform = 'rotate(0)';
       }
     }
+
+    // Set up FAQ ARIA attributes on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqButtons = document.querySelectorAll('.faq-toggle');
+      
+      faqButtons.forEach((button, index) => {
+        // Create unique IDs for each FAQ content section
+        const contentId = `faq-content-${index + 1}`;
+        const contentSection = button.nextElementSibling;
+        
+        // Set ARIA attributes for accessibility
+        contentSection.id = contentId;
+        button.setAttribute('aria-controls', contentId);
+        button.setAttribute('aria-expanded', 'false');
+        contentSection.setAttribute('aria-hidden', 'true');
+      });
+    });
   </script>
 </section>
 <!-- End FAQ Section -->
@@ -1610,6 +1756,114 @@
           setTimeout(() => messageElement.remove(), 500);
         }, 5000);
       }
+    </script>
+    
+    <!-- Back to Top Button -->
+    <button 
+      id="back-to-top" 
+      aria-label="Back to top" 
+      class="fixed bottom-6 right-6 z-50 p-3 bg-amber-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 transform translate-y-4 hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-400"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
+    
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 z-50 shadow-lg transform transition-transform duration-300 translate-y-full">
+      <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between">
+        <div class="flex-1 mb-4 md:mb-0 text-sm md:text-base">
+          <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our <a href="#" class="underline text-amber-400 hover:text-amber-300">Cookie Policy</a>.</p>
+        </div>
+        <div class="flex space-x-4">
+          <button id="cookie-accept" class="bg-amber-600 hover:bg-amber-500 text-white font-medium py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-amber-400 transition-colors duration-200">Accept</button>
+          <button id="cookie-decline" class="bg-gray-600 hover:bg-gray-500 text-white font-medium py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 transition-colors duration-200">Decline</button>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Back to top functionality
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      // Show button when scrolling down
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) { // Show after scrolling 300px
+          backToTopButton.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+          backToTopButton.classList.add('opacity-100', 'translate-y-0');
+        } else {
+          backToTopButton.classList.add('opacity-0', 'invisible', 'translate-y-4');
+          backToTopButton.classList.remove('opacity-100', 'translate-y-0');
+        }
+      });
+      
+      // Scroll to top when clicked
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Cookie consent functionality
+      document.addEventListener('DOMContentLoaded', () => {
+        const cookieBanner = document.getElementById('cookie-consent');
+        const acceptButton = document.getElementById('cookie-accept');
+        const declineButton = document.getElementById('cookie-decline');
+        
+        // Check if user has already made a choice
+        const cookieChoice = localStorage.getItem('cookieConsent');
+        
+        if (!cookieChoice) {
+          // Show banner with a slight delay for better UX
+          setTimeout(() => {
+            cookieBanner.classList.remove('translate-y-full');
+          }, 1000);
+        }
+        
+        acceptButton.addEventListener('click', () => {
+          localStorage.setItem('cookieConsent', 'accepted');
+          cookieBanner.classList.add('translate-y-full');
+          // Here you would enable your analytics and tracking cookies
+        });
+        
+        declineButton.addEventListener('click', () => {
+          localStorage.setItem('cookieConsent', 'declined');
+          cookieBanner.classList.add('translate-y-full');
+          // Here you would disable non-essential cookies
+        });
+        
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightIcon = document.getElementById('light-icon');
+        const darkIcon = document.getElementById('dark-icon');
+        
+        // Check if user has already set a preference
+        const darkModePref = localStorage.getItem('darkMode');
+        
+        // Set initial state based on preference or system preference
+        if (darkModePref === 'enabled' || (darkModePref === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.body.classList.add('dark-mode');
+          lightIcon.classList.add('hidden');
+          darkIcon.classList.remove('hidden');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+          // Toggle dark mode class on body
+          document.body.classList.toggle('dark-mode');
+          
+          // Toggle icons
+          lightIcon.classList.toggle('hidden');
+          darkIcon.classList.toggle('hidden');
+          
+          // Save preference
+          if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            localStorage.setItem('darkMode', 'disabled');
+          }
+        });
+      });
     </script>
     
     <!-- Google Analytics -->
