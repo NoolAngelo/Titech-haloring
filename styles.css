@@ -23,6 +23,118 @@
   --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Section animation classes */
+.animate-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animations for child elements */
+.animate-section .animate-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-section.animate .animate-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-section.animate .animate-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.animate-section.animate .animate-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.animate-section.animate .animate-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.animate-section.animate .animate-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.animate-section.animate .animate-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+/* Microinteractions */
+/* Button hover effects */
+button,
+.button,
+[type="submit"],
+a.bg-amber-600,
+a.bg-gray-800,
+.counter-item,
+.faq-toggle,
+.dark-mode-toggle {
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover,
+.button:hover,
+[type="submit"]:hover,
+a.bg-amber-600:hover,
+a.bg-gray-800:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+button:active,
+.button:active,
+[type="submit"]:active,
+a.bg-amber-600:active,
+a.bg-gray-800:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Ripple effect on click */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Card hover effects */
+.counter-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.counter-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
 /* Apply theme variables */
 body {
   background-color: var(--color-bg-primary);

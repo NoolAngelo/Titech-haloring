@@ -21,7 +21,7 @@
     <meta name="author" content="TiTech" />
     <title>Halo Ring - TiTech</title>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="icon" href="img/TITECH.png" type="image/png">
+    <link rel="icon" href="./img/TITECH.png" type="image/png">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css"
@@ -117,11 +117,52 @@
         transform: translateY(-2px);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
+
+      /* Progress bar styles */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background-color: #fabc6b;
+        z-index: 9999;
+        transition: width 0.2s ease;
+      }
+
+      /* Sticky header styles */
+      .header-sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--color-bg-primary);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        animation: slideDown 0.5s ease;
+        z-index: 100;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      /* Force hide class for the SVG when header is sticky */
+      .force-hidden {
+        display: none !important;
+      }
     </style>
   </head>
   <body class="overflow-x-hidden antialiased">
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+
     <!-- Header Section -->
-    <header class="relative z-50 w-full h-24">
+    <header id="main-header" class="relative z-50 w-full h-24">
       <div
         class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0"
       >
@@ -331,7 +372,7 @@
           </p>
           <form id="waitlist-form" class="w-full max-w-md mb-4 relative">
             <input type="email" placeholder="Enter your email" required class="px-4 py-4 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent w-full shadow-sm">
-            <button type="submit" class="absolute right-0 top-0 h-full px-6 font-medium text-white bg-amber-600 rounded-r-lg hover:bg-amber-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2">
+            <button type="submit" class="absolute right-0 top-0 h-full px-6 font-medium text-white bg-amber-600 rounded-r-lg hover:bg-amber-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 ripple">
               <span class="flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -434,7 +475,7 @@
     <!-- BEGIN Overview SECTION -->
     <div
       id="overview"
-      class="relative w-full px-8 py-10 border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0"
+      class="relative w-full px-8 py-10 border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
     >
       <div
         class="container flex flex-col items-center justify-between h-full max-w-6xl mx-auto"
@@ -817,7 +858,7 @@
 
 <!-- START FEATURES-->
     <div
-    class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0"
+    class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
   >
       <div id="features" class="max-w-full mx-auto md:max-w-6xl sm:px-8">
 
@@ -928,7 +969,7 @@
         </div>
 
         <div
-        class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0"
+        class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
       >
 
 <!--Feature no 1-->
@@ -1027,7 +1068,7 @@
 
 
 <!-- Specification Section -->
-<div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0">
+<div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section">
   <!-- Start Specification -->
   <div id="specification" class="container flex flex-col items-center h-full max-w-6xl mx-auto">
     <h2 class="my-5 text-base font-medium tracking-tight text-black-500 uppercase">
@@ -1105,7 +1146,7 @@
 </div>
 
 <!-- Ring Size Guide Section -->
-<div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0">
+<div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section">
   <div id="size-guide" class="container flex flex-col items-center h-full max-w-6xl mx-auto">
     <h2 class="my-5 text-base font-medium tracking-tight text-amber-600 uppercase">
       Size Guide
@@ -1222,17 +1263,17 @@
 <!-- End Ring Size Guide Section -->
 
 <div
-    class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0"
+    class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
   >
 </div>
 
 <div
-    class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0"
+    class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
   >
 <!-- Start Our Team -->
 <div
   id="ourteam"
-  class="flex items-center justify-center w-full px-8 py-10 border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0"
+  class="flex items-center justify-center w-full px-8 py-10 border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
 >
   <div class="max-w-7xl mx-auto p-6 bg-white rounded-lg border border-gray-100 shadow-lg">
     <div class="text-center mb-12">
@@ -1308,16 +1349,16 @@
 <!--End Our Team-->
 
 <!-- Social Proof Counter Section -->
-<section class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24">
+<section class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 animate-section">
   <div class="container mx-auto max-w-6xl">
-    <div class="text-center mb-8">
+    <div class="text-center mb-8 animate-item">
       <h2 class="text-base font-semibold text-amber-600 uppercase tracking-wider">Our Growth</h2>
       <p class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">Join Our Community</p>
     </div>
     
     <div class="grid grid-cols-2 gap-8 md:grid-cols-4 text-center">
       <!-- Waitlist Members -->
-      <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md">
+      <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md animate-item">
         <div class="flex justify-center">
           <div class="text-amber-600 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1452,7 +1493,7 @@
       </div>
 
       <!-- FAQ Item 3 -->
-      <div class="border border-gray-200 rounded-lg overflow-hidden">
+      <div class="border border-gray-200 rounded-lg overflow-hidden animate-item">
         <button class="faq-toggle w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors duration-150" onclick="toggleFAQ(this)">
           <span class="text-lg font-semibold text-gray-900">How do I charge my Halo Ring?</span>
           <svg class="faq-icon h-6 w-6 text-amber-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1465,7 +1506,7 @@
       </div>
 
       <!-- FAQ Item 4 -->
-      <div class="border border-gray-200 rounded-lg overflow-hidden">
+      <div class="border border-gray-200 rounded-lg overflow-hidden animate-item">
         <button class="faq-toggle w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors duration-150" onclick="toggleFAQ(this)">
           <span class="text-lg font-semibold text-gray-900">Is the Halo Ring secure for payments?</span>
           <svg class="faq-icon h-6 w-6 text-amber-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1478,7 +1519,7 @@
       </div>
 
       <!-- FAQ Item 5 -->
-      <div class="border border-gray-200 rounded-lg overflow-hidden">
+      <div class="border border-gray-200 rounded-lg overflow-hidden animate-item">
         <button class="faq-toggle w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors duration-150" onclick="toggleFAQ(this)">
           <span class="text-lg font-semibold text-gray-900">What payment methods does the Halo Ring support?</span>
           <svg class="faq-icon h-6 w-6 text-amber-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1873,6 +1914,94 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-XXXXXXXXXX'); // Replace G-XXXXXXXXXX with your actual tracking ID when deployed
+    </script>
+    
+    <!-- Progress Bar and Sticky Header JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const progressBar = document.getElementById('progress-bar');
+        const header = document.getElementById('main-header');
+        const headerHeight = header.offsetHeight;
+        const headerSvg = document.querySelector('.absolute.top-0.left-0.hidden.w-screen.max-w-3xl');
+        let lastScrollTop = 0;
+        let headerSticky = false;
+        
+        // Calculate document height for progress bar
+        const getDocHeight = () => {
+          return Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight,
+            document.body.clientHeight,
+            document.documentElement.clientHeight
+          ) - window.innerHeight;
+        };
+        
+        // Update progress bar and handle sticky header on scroll
+        window.addEventListener('scroll', () => {
+          // Update progress bar
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const scrollPercent = (scrollTop / getDocHeight()) * 100;
+          progressBar.style.width = scrollPercent + '%';
+          
+          // Handle sticky header
+          if (scrollTop > headerHeight) {
+            if (!headerSticky) {
+              header.classList.add('header-sticky');
+              // Hide SVG when header is sticky
+              if (headerSvg) headerSvg.classList.add('force-hidden');
+              headerSticky = true;
+            }
+          } else {
+            if (headerSticky) {
+              header.classList.remove('header-sticky');
+              // Show SVG again when header is not sticky
+              if (headerSvg) headerSvg.classList.remove('force-hidden');
+              headerSticky = false;
+            }
+          }
+          
+          lastScrollTop = scrollTop;
+        });
+        
+        // Section animations - Fix to ensure contents are visible
+        const animateSections = document.querySelectorAll('.animate-section');
+        
+        // First make sure content is visible by default - Fix for no JavaScript scenario
+        document.body.classList.add('animations-ready');
+        
+        // Function to check if elements are in viewport
+        function checkSections() {
+          const triggerPosition = window.innerHeight * 0.85;
+          
+          animateSections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            
+            if (sectionTop < triggerPosition) {
+              section.classList.add('animate');
+            }
+          });
+        }
+        
+        // Initial check for visible sections
+        checkSections();
+        
+        // Check sections on scroll - Fix for animation trigger
+        window.addEventListener('scroll', () => {
+          // Use requestAnimationFrame for better performance
+          window.requestAnimationFrame(checkSections);
+        });
+        
+        // Add ripple effect to buttons
+        const buttons = document.querySelectorAll('button:not(.faq-toggle), .button, [type="submit"], a.bg-amber-600, a.bg-gray-800');
+        
+        buttons.forEach(button => {
+          if (!button.classList.contains('ripple')) {
+            button.classList.add('ripple');
+          }
+        });
+      });
     </script>
 </body>
 </html>
