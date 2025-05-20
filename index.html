@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Add preload for critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="mobileNav.js" as="script">
+    
+    <!-- Add preconnect for third-party domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Add Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Add responsive viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Halo Ring - A convenient, secure, and stylish way to simplify your payment experience." />
+    <meta name="description" content="Halo Ring - The smart NFC payment ring with IP68 water resistance. Make contactless payments with style and security using TiTech's titanium wearable device.">
     <meta name="keywords" content="Halo Ring, Contactless Payment, TiTech, Secure Payment, Wearable Technology, NFC Ring" />
     <meta name="author" content="TiTech" />
     <title>Halo Ring - TiTech</title>
@@ -14,6 +27,55 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css"
     />
     <link rel="stylesheet" href="styles.css" />
+    
+    <!-- Add Open Graph tags -->
+    <meta property="og:title" content="Halo Ring - Contactless Payment Solution by TiTech">
+    <meta property="og:description" content="A convenient, secure, and stylish way to simplify your payment experience.">
+    <meta property="og:image" content="https://yourdomain.com/img/matte_no_bg.png">
+    <meta property="og:url" content="https://yourdomain.com">
+    
+    <!-- Add Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <style>
+      /* Global font family consistency */
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+      }
+      
+      p, span, a, li, button, input {
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      /* Brand color consistency */
+      .text-amber-600, .hover\:text-amber-600:hover, 
+      .border-fabc6b, .bg-fabc6b, [style*="background-color: #fabc6b"] {
+        color: #fabc6b;
+      }
+      
+      .border-fabc6b {
+        border-color: #fabc6b;
+      }
+      
+      .bg-fabc6b, [style*="background-color: #fabc6b"] {
+        background-color: #fabc6b;
+      }
+      
+      /* Improving buttons */
+      button, .button, [type="submit"] {
+        transition: all 0.3s ease;
+      }
+      
+      button:hover, .button:hover, [type="submit"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body class="overflow-x-hidden antialiased">
     <!-- Header Section -->
@@ -36,44 +98,44 @@
         >
           <a
             href="index.html"
-            class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
+            class="ml-0 mr-0 font-medium duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
             >Home</a
           >
 
           <a
             href="#overview"
-            class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
+            class="mr-0 font-medium duration-100 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
             >Overview</a
           >
           <a
             href="#features"
-            class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
+            class="mr-0 font-medium duration-100 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
             >Features</a
           >
           <a
             href="#specification"
-            class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
+            class="mr-0 font-medium duration-100 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
             >Specification</a
           >
           <a
             href="#ourteam"
-            class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
+            class="mr-0 font-medium duration-100 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
             >Our Team</a
           >
           <a
             href="https://haloring-titech.netlify.app/"
-            class="font-bold duration-100 transition-color hover:text-amber-600"
+            class="font-medium duration-100 transition-color hover:text-amber-600"
             >Documentation</a
           >
           <div
             class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden"
           >
-            <a href="login.html" class="w-full py-2 font-bold text-center text-black"
+            <a href="login.html" class="w-full py-2 font-medium text-center text-black"
               >Log in</a
             >
             <a
               href="contactus.html"
-              class="relative inline-block w-full px-5 py-3 text-sm leading-none text-center text-white bg-gray-700 fold-bold"
+              class="relative inline-block w-full px-5 py-3 text-sm leading-none text-center text-white bg-amber-600 fold-bold"
               >Contact Us</a
             >
           </div>
@@ -84,12 +146,12 @@
         >
           <a
             href="login.html"
-            class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-black-500 md:px-5 lg:text-white sm:mr-3 md:mt-0"
+            class="relative z-40 px-3 py-2 mr-0 text-sm font-medium text-amber-600 md:px-5 lg:text-white sm:mr-3 md:mt-0 hover:text-amber-700"
             >Login</a
           >
           <a
             href="contactus.html"
-            class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-black transition-all transition duration-100 duration-300 bg-white-700 rounded shadow-md fold-bold lg:bg-white lg:text-black-700 sm:w-full lg:shadow-none hover:shadow-xl"
+            class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-medium leading-none text-white transition-all transition duration-300 bg-amber-600 rounded-md fold-bold lg:text-black-700 sm:w-full lg:shadow-none hover:bg-amber-700 hover:shadow-lg"
             >Contact Us</a
           >
           <svg
@@ -201,7 +263,7 @@
           <h3
             class="relative text-2xl font-black leading-tight text-gray-900 sm:text-4xl xl:mb-6"
           >
-            Tap into Convenience.
+            Tap into <span class="text-amber-600">Convenience.</span>
           </h3>
           <p
             class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-xl lg:pr-20"
@@ -209,13 +271,12 @@
             A convenient, secure, and stylish way to simplify your payment
             experience.
           </p>
-          <a
-            href="#_"
-            class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-gray-600 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0"
-            >Join the Waitlist</a
-          >
+          <form id="waitlist-form" class="w-full max-w-md flex flex-col sm:flex-row">
+            <input type="email" placeholder="Enter your email" required class="px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent w-full">
+            <button type="submit" class="px-8 py-3 text-base font-semibold text-white bg-amber-600 rounded-md hover:bg-amber-700 transition-all duration-300 w-full sm:w-auto">Join the Waitlist</button>
+          </form>
 
-          <a href="#_" style="font-size: 14px; color: #4a5568;">We’re releasing the ring in the Philippines first, but stay tuned for overseas launches.</a>
+          <a href="#_" class="mt-4 text-sm text-gray-500 hover:text-amber-600 transition-colors duration-300">We're releasing the ring in the Philippines first, but stay tuned for overseas launches.</a>
 
           <svg
             class="absolute left-0 max-w-md mt-24 -ml-64 left-svg"
@@ -311,7 +372,7 @@
         class="container flex flex-col items-center justify-between h-full max-w-6xl mx-auto"
       >
         <h2
-          class="my-5 text-base font-medium tracking-tight text-black-500 uppercase"
+          class="my-5 text-base font-medium tracking-tight text-amber-600 uppercase"
         >
           Overview
         </h2>
@@ -321,7 +382,7 @@
         
         Simplify your Payment Experience
         </h3>
-        <p class="max-w-xl px-5 mt-2 text-2xl font-black text-center text-gray-700">
+        <p class="max-w-xl px-5 mt-2 text-xl text-center text-gray-700">
           The Halo Ring is designed as a wearable contactless payment device that integrates with a user's existing debit or credit card via the HaloPay app. 
         </p>
         <div class="flex flex-col w-full mt-0 lg:flex-row sm:mt-10 lg:mt-20">
@@ -329,7 +390,7 @@
             class="w-full max-w-md p-4 mx-auto mb-0 sm:mb-16 lg:mb-0 lg:w-1/3"
           >
             <div
-              class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg"
+              class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 bg-white"
             >
               <svg
                 class="absolute w-full h-full text-gray-100 fill-current"
@@ -359,8 +420,8 @@
                     y2="100%"
                     id="linearGradient-1TriangleIcon1"
                   >
-                    <stop stop-color="#9C09DB" offset="0%" />
-                    <stop stop-color="#1C0FD7" offset="100%" />
+                    <stop stop-color="#fabc6b" offset="0%" />
+                    <stop stop-color="#fabc6b" offset="100%" />
                   </linearGradient>
                   <filter
                     x="-14%"
@@ -436,14 +497,14 @@
                   </g>
                 </g>
               </svg>
-              <h4 class="relative mt-6 text-lg font-bold" style="text-align: center;">Contactless Payments</h4>
+              <h4 class="relative mt-6 text-lg font-semibold">Contactless Payments</h4>
               <p class="relative mt-2 text-base text-center text-gray-600">
                 Enjoy effortless contactless payments with a simple tap of your hand. Use your ring for quick and seamless transactions globally.
               </p>
               <a
                 href="#_"
-                class="relative flex mt-2 text-sm font-medium text-amber-600 underline"
-                >Learn More</a
+                class="relative flex mt-4 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors duration-300"
+                >Learn More →</a
               >
             </div>
           </div>
@@ -452,7 +513,7 @@
             class="w-full max-w-md p-4 mx-auto mb-0 sm:mb-16 lg:mb-0 lg:w-1/3"
           >
             <div
-              class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg"
+              class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 bg-white"
             >
               <svg
                 class="absolute w-full h-full text-gray-100 fill-current"
@@ -482,8 +543,8 @@
                     y2="100%"
                     id="linearGradient-1Icon2"
                   >
-                    <stop stop-color="#F2C314" offset="0%" />
-                    <stop stop-color="#FC3832" offset="100%" />
+                    <stop stop-color="#fabc6b" offset="0%" />
+                    <stop stop-color="#fabc6b" offset="100%" />
                   </linearGradient>
                   <filter
                     x="-14%"
@@ -552,21 +613,21 @@
                   </g>
                 </g>
               </svg>
-              <h4 class="relative mt-6 text-lg font-bold">Expense Tracking</h4>
+              <h4 class="relative mt-6 text-lg font-semibold">Expense Tracking</h4>
               <p class="relative mt-2 text-base text-center text-gray-600">
 The HaloPay app provides detailed expense reports, helping users monitor their financial habits and manage their budget effectively.
               </p>
               <a
                 href="#_"
-                class="relative flex mt-2 text-sm font-medium text-amber-600 underline"
-                >Learn More</a
+                class="relative flex mt-4 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors duration-300"
+                >Learn More →</a
               >
             </div>
           </div>
 
           <div class="w-full max-w-md p-4 mx-auto mb-16 lg:mb-0 lg:w-1/3">
             <div
-              class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg"
+              class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 bg-white"
             >
               <svg
                 class="absolute w-full h-full text-gray-100 fill-current"
@@ -596,8 +657,8 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
                     y2="100%"
                     id="linearGradient-1Icon3"
                   >
-                    <stop stop-color="#32FBFC" offset="0%" />
-                    <stop stop-color="#3214F2" offset="100%" />
+                    <stop stop-color="#fabc6b" offset="0%" />
+                    <stop stop-color="#fabc6b" offset="100%" />
                   </linearGradient>
                   <filter
                     x="-14%"
@@ -669,7 +730,7 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
                   </g>
                 </g>
               </svg>
-              <h4 class="relative mt-6 text-lg font-bold">
+              <h4 class="relative mt-6 text-lg font-semibold">
                 Smart Notifications
               </h4>
               <p class="relative mt-2 text-base text-center text-gray-600">
@@ -677,8 +738,8 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
               </p>
               <a
                 href="#_"
-                class="relative flex mt-2 text-sm font-medium text-amber-600 underline"
-                >Learn More</a
+                class="relative flex mt-4 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors duration-300"
+                >Learn More →</a
               >
             </div>
           </div>
@@ -699,8 +760,8 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
         <div class="bg-white py-24 sm:py-1">
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:text-center">
-              <h2 class="text-base font-semibold leading-7">Features</h2>
-              <p class="mt-2 text-3xl font-bold tracking-tight text-black sm:text-6xl">Features and Benefits</p>
+              <h2 class="text-base font-semibold leading-7 text-amber-600">Features</h2>
+              <p class="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">Features and Benefits</p>
               <p class="mt-6 text-lg leading-8 text-gray-700">Halo Ring offers a variety of practical features and benefits. Explore what they are and why they matter. Read on to see what makes Halo Ring exceptional.</p>
             </div>
             <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -708,7 +769,7 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
                 <!-- Travel Friendly -->
                 <div class="relative pl-16">
                   <dt class="text-base font-semibold leading-7 text-black">
-                    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg" style="background-color: #fabc6b;">
+                    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-600 shadow-md">
                       <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
                       </svg>
@@ -721,7 +782,7 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
                 <!-- SSL Certificates -->
                 <div class="relative pl-16">
                   <dt class="text-base font-semibold leading-7 text-black">
-                    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg" style="background-color: #fabc6b;">
+                    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-600 shadow-md">
                       <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                       </svg>
@@ -896,7 +957,8 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
     <h2 class="my-5 text-base font-medium tracking-tight text-black-500 uppercase">
       Specifications
     </h2>
-    <h3 class="w-full max-w-2xl mt-2 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl">
+    <h3 class="w-full max-w-2xl mt-2 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl md:px-0"
+      >
       Halo Ring
     </h3>
     <div class="max-w-full mx-auto md:max-w-6xl sm:px-8">
@@ -978,9 +1040,9 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
   id="ourteam"
   class="flex items-center justify-center w-full px-8 py-10 border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0"
 >
-  <div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg border border-fabc6b">
+  <div class="max-w-7xl mx-auto p-6 bg-white rounded-lg border border-gray-100 shadow-lg">
     <div class="text-center mb-12">
-      <p class="my-5 text-base font-medium tracking-tight text-fabc6b uppercase">
+      <p class="my-5 text-base font-medium tracking-tight text-amber-600 uppercase">
         Who We Are
       </p>
       <h2
@@ -989,46 +1051,46 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
         Meet Our Team
       </h2>
       <br>
-      <p class="text-gray-600">Our team of experts in engineering, design, and security came together to create products that not only solve everyday problems but do so with elegance and reliability.
+      <p class="text-gray-600 max-w-3xl mx-auto">Our team of experts in engineering, design, and security came together to create products that not only solve everyday problems but do so with elegance and reliability.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="text-center">
-        <div class="w-24 h-24 mx-auto border-4 border-fabc6b rounded-full">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w-24 h-24 mx-auto border-4 border-amber-600 rounded-full overflow-hidden">
           <img class="w-full h-full rounded-full object-cover" src="img/chico.png" alt="Matt Angelo Chico">
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-fabc6b">Matt Angelo Chico</h3>
-        <p class="text-gray-500">Engineering Manager/Director</p>
+        <h3 class="mt-4 text-xl font-semibold text-amber-600">Matt Angelo Chico</h3>
+        <p class="text-gray-500 font-medium">Engineering Manager/Director</p>
         <p class="mt-2 text-gray-600">
           I oversee the overall engineering processes, manage the development and production of the Halo Ring, ensure product quality and innovation.
         </p>
       </div>
-      <div class="text-center">
-        <div class="w-24 h-24 mx-auto border-4 border-fabc6b rounded-full">
+      <div class="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w-24 h-24 mx-auto border-4 border-amber-600 rounded-full overflow-hidden">
           <img class="w-full h-full rounded-full object-cover" src="img/nool.png" alt="Mark Angelo Nool">
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-fabc6b">Mark Angelo Nool</h3>
-        <p class="text-gray-500">Network Security Engineer</p>
+        <h3 class="mt-4 text-xl font-semibold text-amber-600">Mark Angelo Nool</h3>
+        <p class="text-gray-500 font-medium">Network Security Engineer</p>
         <p class="mt-2 text-gray-600">
-          Responsible for the design and implementation of robust security protocols for the Halo Ring and HaloPay app, ensuring data protection and preventing unauthorized access. Yep, that's me!
+          Responsible for the design and implementation of robust security protocols for the Halo Ring and HaloPay app, ensuring data protection and preventing unauthorized access.
         </p>
       </div>
-      <div class="text-center">
-        <div class="w-24 h-24 mx-auto border-4 border-fabc6b rounded-full">
+      <div class="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w-24 h-24 mx-auto border-4 border-amber-600 rounded-full overflow-hidden">
           <img class="w-full h-full rounded-full object-cover" src="img/ireneo.png" alt="Nathaniel Ireneo">
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-fabc6b">Nathaniel Ireneo</h3>
-        <p class="text-gray-500">Electronics Engineer</p>
+        <h3 class="mt-4 text-xl font-semibold text-amber-600">Nathaniel Ireneo</h3>
+        <p class="text-gray-500 font-medium">Electronics Engineer</p>
         <p class="mt-2 text-gray-600">
-          I develop and maintain the electronic components of the Halo Ring, ensuring the device’s functionality and durability.
+          I develop and maintain the electronic components of the Halo Ring, ensuring the device's functionality and durability.
         </p>
       </div>
-      <div class="text-center">
-        <div class="w-24 h-24 mx-auto border-4 border-fabc6b rounded-full">
+      <div class="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w-24 h-24 mx-auto border-4 border-amber-600 rounded-full overflow-hidden">
           <img class="w-full h-full rounded-full object-cover" src="img/cajucom.png" alt="Mitchelle Cajucom">
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-fabc6b">Mitchelle Cajucom</h3>
-        <p class="text-gray-500">Field Service Engineer</p>
+        <h3 class="mt-4 text-xl font-semibold text-amber-600">Mitchelle Cajucom</h3>
+        <p class="text-gray-500 font-medium">Field Service Engineer</p>
         <p class="mt-2 text-gray-600">
           I provide technical support and maintenance for the Halo Ring, handle customer service inquiries, and assist with troubleshooting issues.
         </p>
@@ -1040,7 +1102,7 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
 <!--End Our Team-->
 
     <footer
-      class="px-4 pt-12 pb-8 text-white bg-white border-t border-gray-200"
+      class="px-4 pt-12 pb-8 text-white bg-gray-800 border-t border-gray-200"
     >
       <div
         class="container flex flex-col justify-between max-w-6xl px-4 mx-auto overflow-hidden lg:flex-row"
@@ -1055,21 +1117,21 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
             <span class="flex items-start sm:items-center">
               <img
                 src="img/TITECH.png"
-                class="w-auto h-6 text-gray-800 fill-current"
+                class="w-auto h-8 text-gray-800 fill-current"
                 alt="titech_logo"
               />
             </span>
           </a>
-          <p class="mt-6 mr-4 text-base text-gray-500">
+          <p class="mt-6 mr-4 text-base text-gray-400">
             Crafting the next-level of user experience and engagement.
           </p>
         </div>
         <div class="block w-full pl-10 mt-6 text-sm lg:w-3/4 sm:flex lg:mt-0">
           <ul
-            class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none"
+            class="flex flex-col w-full p-0 font-medium text-left text-gray-300 list-none"
           >
             <li
-              class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0"
+              class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-white uppercase md:mt-0"
             >
               Product
             </li>
@@ -1202,7 +1264,6 @@ The HaloPay app provides detailed expense reports, helping users monitor their f
     </footer>
 
     <script src="mobileNav.js"></script>
-    <!-- <script src="webgazer.js"></script>L -->
-    <script src="eyetracking.js"></script>
+   
 </body>
 </html>
