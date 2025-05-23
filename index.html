@@ -329,7 +329,7 @@
         <button
           id="dark-mode-toggle"
           aria-label="Toggle Dark Mode"
-          class="dark-mode-toggle hidden md:flex"
+          class="dark-mode-toggle flex md:flex"
         >
           <!-- Sun icon for light mode -->
           <svg id="light-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -377,7 +377,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
-                Join
+                <span class="font-bold">Join</span>
               </span>
             </button>
           </form>
@@ -1811,35 +1811,45 @@
           // Here you would disable non-essential cookies
         });
         
-        // Dark mode toggle functionality
+        // Enhanced dark mode toggle functionality
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         const lightIcon = document.getElementById('light-icon');
         const darkIcon = document.getElementById('dark-icon');
+        
+        // Function to apply transition class to body before changing mode
+        function toggleDarkMode(enable) {
+          // Add transition class
+          document.body.style.transition = "background-color 0.5s ease, color 0.5s ease";
+          
+          if (enable) {
+            document.body.classList.add('dark-mode');
+            lightIcon.classList.add('hidden');
+            darkIcon.classList.remove('hidden');
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            document.body.classList.remove('dark-mode');
+            lightIcon.classList.remove('hidden');
+            darkIcon.classList.add('hidden');
+            localStorage.setItem('darkMode', 'disabled');
+          }
+          
+          // Remove transition after animation completes to avoid affecting other elements
+          setTimeout(() => {
+            document.body.style.transition = "";
+          }, 500);
+        }
         
         // Check if user has already set a preference
         const darkModePref = localStorage.getItem('darkMode');
         
         // Set initial state based on preference or system preference
         if (darkModePref === 'enabled' || (darkModePref === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.body.classList.add('dark-mode');
-          lightIcon.classList.add('hidden');
-          darkIcon.classList.remove('hidden');
+          toggleDarkMode(true);
         }
         
         darkModeToggle.addEventListener('click', () => {
-          // Toggle dark mode class on body
-          document.body.classList.toggle('dark-mode');
-          
-          // Toggle icons
-          lightIcon.classList.toggle('hidden');
-          darkIcon.classList.toggle('hidden');
-          
-          // Save preference
-          if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-          } else {
-            localStorage.setItem('darkMode', 'disabled');
-          }
+          // Toggle dark mode based on current state
+          toggleDarkMode(!document.body.classList.contains('dark-mode'));
         });
       });
     </script>

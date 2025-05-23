@@ -3,24 +3,172 @@
   /* Light mode (default) */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f7fafc;
+  --color-bg-tertiary: #edf2f7;
   --color-text-primary: #1a202c;
   --color-text-secondary: #4a5568;
+  --color-text-tertiary: #718096;
   --color-accent: #fabc6b;
   --color-accent-hover: #f6ad4b;
+  --color-accent-dark: #e8ab5c;
   --color-border: #e2e8f0;
   --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-dark: rgba(0, 0, 0, 0.2);
+  --card-bg: #ffffff;
 }
 
 /* Dark mode class */
 .dark-mode {
-  --color-bg-primary: #1a202c;
-  --color-bg-secondary: #2d3748;
-  --color-text-primary: #f7fafc;
-  --color-text-secondary: #e2e8f0;
-  --color-accent: #fabc6b;
+  --color-bg-primary: #1a1f2c; /* Slightly bluer dark background */
+  --color-bg-secondary: #252f42; /* More vibrant dark secondary */
+  --color-bg-tertiary: #2d3748;
+  --color-text-primary: #f8fafc; /* Brighter white text */
+  --color-text-secondary: #cbd5e0; /* Better contrast secondary text */
+  --color-text-tertiary: #a0aec0;
+  --color-accent: #fabc6b; /* Keep accent color consistent */
   --color-accent-hover: #f6ad4b;
-  --color-border: #4a5568;
-  --shadow-color: rgba(0, 0, 0, 0.5);
+  --color-accent-dark: #e8ab5c;
+  --color-border: #3a4a61; /* Bluer border */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-dark: rgba(0, 0, 0, 0.5);
+  --card-bg: #252f42; /* Card background */
+}
+
+/* Dark mode specific text adjustments */
+body.dark-mode {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: var(--color-text-primary);
+}
+
+body.dark-mode p {
+  color: var(--color-text-secondary);
+}
+
+body.dark-mode .text-gray-900,
+body.dark-mode .text-black {
+  color: var(--color-text-primary) !important;
+}
+
+body.dark-mode .text-gray-800,
+body.dark-mode .text-gray-700,
+body.dark-mode .text-gray-600 {
+  color: var(--color-text-secondary) !important;
+}
+
+body.dark-mode .text-gray-500 {
+  color: var(--color-text-tertiary) !important;
+}
+
+body.dark-mode .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+body.dark-mode .border-gray-200 {
+  border-color: var(--color-border) !important;
+}
+
+/* Enhanced dark mode styles for better UI */
+
+/* Header and navigation styling in dark mode */
+body.dark-mode header {
+  background-color: var(--color-bg-primary);
+}
+
+body.dark-mode #nav {
+  background-color: var(--color-bg-primary);
+  border-color: var(--color-border);
+}
+
+body.dark-mode nav a {
+  color: var(--color-text-primary);
+}
+
+body.dark-mode nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Logo text color in dark mode */
+body.dark-mode .text-gray-800,
+body.dark-mode span.text-gray-800,
+body.dark-mode span.text-xl.text-gray-800 {
+  color: var(--color-text-primary) !important;
+}
+
+/* Fix for mobile menu in dark mode */
+body.dark-mode #nav-mobile-btn span {
+  background-color: var(--color-text-primary);
+}
+
+/* Card styling improvements for dark mode */
+body.dark-mode .shadow-lg,
+body.dark-mode .hover\:shadow-xl:hover {
+  box-shadow: 0 10px 15px -3px var(--shadow-color),
+    0 4px 6px -2px var(--shadow-color-dark);
+}
+
+/* Dark mode specific hover effects */
+body.dark-mode .hover\:bg-amber-700:hover {
+  background-color: var(--color-accent-hover);
+}
+
+body.dark-mode .hover\:text-amber-600:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Feature cards in dark mode */
+body.dark-mode .rounded-lg {
+  background-color: var(--card-bg);
+}
+
+body.dark-mode .text-gray-100 {
+  color: rgba(255, 255, 255, 0.05) !important; /* Background patterns */
+}
+
+/* Improve the contrast of amber text in dark mode */
+body.dark-mode .text-amber-600 {
+  color: var(--color-accent) !important;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve button visibility in dark mode */
+body.dark-mode a.bg-amber-600,
+body.dark-mode a.hover\:bg-amber-700:hover,
+body.dark-mode button.bg-amber-600 {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Image shadows in dark mode */
+body.dark-mode img {
+  filter: drop-shadow(0 4px 6px var(--shadow-color));
+}
+
+/* Specific fix for the Login link in dark mode */
+body.dark-mode a.text-white,
+body.dark-mode a.lg\:text-white {
+  color: var(--color-text-primary) !important;
+}
+
+body.dark-mode a.text-white:hover,
+body.dark-mode a.lg\:text-white:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Better visibility for all links in dark mode */
+body.dark-mode a {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+body.dark-mode a:hover {
+  text-shadow: 0 0 1px var(--color-accent);
 }
 
 /* Section animation classes */
@@ -166,9 +314,7 @@ body {
 
 /* Dark mode toggle button */
 .dark-mode-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  position: relative;
   z-index: 100;
   background-color: var(--color-bg-secondary);
   color: var(--color-text-primary);
@@ -182,6 +328,7 @@ body {
   cursor: pointer;
   box-shadow: 0 2px 6px var(--shadow-color);
   transition: all 0.3s ease;
+  margin-left: 15px;
 }
 
 .dark-mode-toggle:hover {
@@ -189,9 +336,38 @@ body {
   box-shadow: 0 4px 8px var(--shadow-color);
 }
 
+body.dark-mode .dark-mode-toggle {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(250, 188, 107, 0.2);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 20px rgba(250, 188, 107, 0.3);
+}
+
+/* Make icon transitions smooth */
+.dark-mode-toggle svg {
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.dark-mode-toggle svg.hidden {
+  opacity: 0;
+  position: absolute;
+  transform: scale(0.5);
+}
+
+.dark-mode-toggle svg:not(.hidden) {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* Adjust dark mode toggle position on mobile */
 @media (max-width: 767px) {
   .dark-mode-toggle {
+    position: fixed;
     top: 20px;
     right: 75px; /* Move it to the left of the mobile menu button */
   }
@@ -264,4 +440,215 @@ input:focus,
 textarea:focus {
   outline: 2px solid #fabc6b;
   outline-offset: 2px;
+}
+
+/* Improve button visibility */
+#waitlist-form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--color-accent);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#waitlist-form button:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#waitlist-form button span {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Dark mode specific button styles */
+body.dark-mode #waitlist-form button {
+  background-color: var(--color-accent);
+  color: #1a1f2c; /* Dark text color for contrast on amber button */
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #waitlist-form button:hover {
+  background-color: var(--color-accent-hover);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #waitlist-form input {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode #waitlist-form input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* Additional form styling improvements */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* Global link and UI elements styling */
+body.dark-mode a.text-amber-600,
+body.dark-mode .text-amber-600 {
+  color: var(--color-accent) !important;
+  font-weight: 500;
+}
+
+body.dark-mode a.hover\:text-amber-700:hover {
+  color: var(--color-accent-hover) !important;
+}
+
+/* Feature icons in dark mode */
+body.dark-mode
+  .absolute.left-0.top-0.flex.h-10.w-10.items-center.justify-center.rounded-lg.bg-amber-600 {
+  background-color: var(--color-accent) !important;
+  box-shadow: 0 0 10px rgba(250, 188, 107, 0.3);
+}
+
+/* Additional dark mode improvements */
+
+/* Fix for the feature cards in dark mode - adding proper styling and visual hierarchy */
+body.dark-mode .rounded-lg.shadow-lg {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border);
+}
+
+body.dark-mode .rounded-lg.shadow-lg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Make overview cards look better in dark mode */
+body.dark-mode #overview .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+/* Feature icons in dark mode */
+body.dark-mode svg.text-gray-100 {
+  color: rgba(
+    255,
+    255,
+    255,
+    0.02
+  ) !important; /* Better subtle background patterns */
+}
+
+/* Fix the border colors in dark mode */
+body.dark-mode .border-t.border-gray-200 {
+  border-color: var(--color-border) !important;
+}
+
+/* Typography improvements in dark mode */
+body.dark-mode h4.font-semibold {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+body.dark-mode .absolute.bg-amber-600,
+body.dark-mode .bg-amber-600 {
+  background-color: var(--color-accent) !important;
+  box-shadow: 0 0 15px rgba(250, 188, 107, 0.15);
+}
+
+/* Fix for Features section */
+body.dark-mode .relative.pl-16 dt,
+body.dark-mode .relative.pl-16 dd {
+  color: var(--color-text-secondary);
+}
+
+body.dark-mode .relative.pl-16 dt {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Progress bar improvements */
+body.dark-mode #progress-bar {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 10px rgba(250, 188, 107, 0.5);
+}
+
+/* Main sections background in dark mode */
+body.dark-mode .bg-white.py-24,
+body.dark-mode .bg-white.sm\:py-1 {
+  background-color: var(--color-bg-primary) !important;
+}
+
+/* Subtle gradient background in dark mode */
+body.dark-mode::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at top right,
+      rgba(70, 90, 120, 0.1),
+      transparent
+    ),
+    radial-gradient(circle at bottom left, rgba(38, 47, 66, 0.05), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Making the overview cards pop in dark mode */
+body.dark-mode #overview .p-20 {
+  background-color: var(--card-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #overview .p-20:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(250, 188, 107, 0.1);
+}
+
+/* Learn More links in dark mode */
+body.dark-mode a[href="#_"].text-sm.text-amber-600 {
+  color: var(--color-accent) !important;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+body.dark-mode a[href="#_"].text-sm.text-amber-600::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+body.dark-mode a[href="#_"].text-sm.text-amber-600:hover::after {
+  width: 100%;
+}
+
+/* Smooth transition for all elements when switching modes */
+body,
+body * {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
 }
