@@ -86,8 +86,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Contact
 
-- Email: tanginngyan@yahoo.com
-- Phone: +63 (969) 420 6969
+- Email: 
+- Phone: 
 - Location: Filinvest Ave, Alabang, Muntinlupa, Metro Manila
 
 ## 🙏 Acknowledgments
