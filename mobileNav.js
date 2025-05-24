@@ -1,75 +1,170 @@
 /**
- * Mobile navigation functionality for Halo Ring website
- * Handles toggling the mobile menu and button states with enhanced animations
+ * Modern Mobile Navigation for Halo Ring Website
+ * Clean, simple, and functional mobile navigation
  */
 
 document.addEventListener("DOMContentLoaded", function () {
   const navBtn = document.getElementById("nav-mobile-btn");
   const nav = document.getElementById("nav");
-  const navBtnBars = navBtn ? navBtn.querySelectorAll("span") : [];
+  const darkModeToggle = document.getElementById("dark-mode-toggle");
+  const darkModeToggleDesktop = document.getElementById(
+    "dark-mode-toggle-desktop"
+  );
 
-  // Add transition styles to the nav menu and burger icon
-  if (nav) {
-    // Add transition styles directly to the element
-    nav.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-    nav.style.transformOrigin = "top right";
-  }
-
+  // Mobile navigation functionality
   if (navBtn && nav) {
-    navBtn.addEventListener("click", () => {
-      // Toggle the navigation menu with animation
-      if (nav.classList.contains("hidden")) {
-        // Prepare to show - set initial state before removing hidden
-        nav.style.opacity = "0";
-        nav.style.transform = "translateY(-20px)";
-        nav.classList.remove("hidden");
+    navBtn.addEventListener("click", function () {
+      const isOpen = nav.classList.contains("hidden");
 
-        // Trigger animation after a tiny delay for the browser to recognize the change
+      if (isOpen) {
+        // Show menu
+        nav.classList.remove("hidden");
+        nav.style.opacity = "0";
+        nav.style.transform = "translateY(-10px)";
+
         setTimeout(() => {
           nav.style.opacity = "1";
           nav.style.transform = "translateY(0)";
         }, 10);
-      } else {
-        // Hide with animation
-        nav.style.opacity = "0";
-        nav.style.transform = "translateY(-20px)";
 
-        // Wait for animation to complete before adding hidden class
+        // Animate hamburger to X
+        animateHamburgerToX();
+        navBtn.setAttribute("aria-expanded", "true");
+      } else {
+        // Hide menu
+        nav.style.opacity = "0";
+        nav.style.transform = "translateY(-10px)";
+
         setTimeout(() => {
           nav.classList.add("hidden");
-        }, 300); // Match the transition duration
+        }, 300);
+
+        // Animate X back to hamburger
+        animateXToHamburger();
+        navBtn.setAttribute("aria-expanded", "false");
       }
+    });
 
-      // Toggle the button appearance - transform to X
-      if (navBtnBars.length >= 2) {
-        if (navBtn.classList.contains("close")) {
-          // Animate to burger icon
-          navBtnBars[0].style.transform = "rotate(0deg) translateY(0)";
-          navBtnBars[1].style.transform = "rotate(0deg) translateY(0)";
-          navBtnBars[1].style.opacity = "1";
+    // Close menu when clicking outside
+    document.addEventListener("click", function (e) {
+      if (
+        !nav.contains(e.target) &&
+        !navBtn.contains(e.target) &&
+        !nav.classList.contains("hidden")
+      ) {
+        nav.style.opacity = "0";
+        nav.style.transform = "translateY(-10px)";
 
-          // Small delay to match the nav animation
+        setTimeout(() => {
+          nav.classList.add("hidden");
+        }, 300);
+
+        animateXToHamburger();
+        navBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Close menu when clicking nav links
+    const navLinks = nav.querySelectorAll("a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+          nav.style.opacity = "0";
+          nav.style.transform = "translateY(-10px)";
+
           setTimeout(() => {
-            navBtn.classList.remove("close");
-          }, 150);
-        } else {
-          // Animate to X icon
-          navBtn.classList.add("close");
-          navBtnBars[0].style.transform = "rotate(45deg) translateY(0.325rem)";
-          navBtnBars[1].style.transform =
-            "rotate(-45deg) translateY(-0.325rem)";
-          navBtnBars[1].style.opacity = "1";
+            nav.classList.add("hidden");
+          }, 300);
+
+          animateXToHamburger();
+          navBtn.setAttribute("aria-expanded", "false");
         }
-      }
-
-      // Update ARIA attributes
-      const isExpanded = navBtn.getAttribute("aria-expanded") === "true";
-      navBtn.setAttribute("aria-expanded", !isExpanded);
+      });
     });
+  }
 
-    // Add CSS for transitions to the nav button bars
-    navBtnBars.forEach((bar) => {
-      bar.style.transition = "transform 0.3s ease, opacity 0.3s ease";
+  // Hamburger animation functions
+  function animateHamburgerToX() {
+    const lines = navBtn.querySelectorAll(".hamburger-line");
+    if (lines.length >= 3) {
+      lines[0].style.transform = "rotate(45deg) translateY(6px)";
+      lines[1].style.opacity = "0";
+      lines[2].style.transform = "rotate(-45deg) translateY(-6px)";
+    }
+  }
+
+  function animateXToHamburger() {
+    const lines = navBtn.querySelectorAll(".hamburger-line");
+    if (lines.length >= 3) {
+      lines[0].style.transform = "rotate(0) translateY(0)";
+      lines[1].style.opacity = "1";
+      lines[2].style.transform = "rotate(0) translateY(0)";
+    }
+  }
+
+  // Dark mode functionality for both mobile and desktop
+  function setupDarkMode(toggle) {
+    if (!toggle) return;
+
+    toggle.addEventListener("click", function () {
+      const isDarkMode = document.body.classList.toggle("dark-mode");
+      localStorage.setItem("darkMode", isDarkMode);
+      updateDarkModeIcons();
     });
+  }
+
+  function updateDarkModeIcons() {
+    const isDarkMode = document.body.classList.contains("dark-mode");
+
+    // Update mobile icons
+    const mobileLight = document.querySelector("#dark-mode-toggle #light-icon");
+    const mobileDark = document.querySelector("#dark-mode-toggle #dark-icon");
+
+    // Update desktop icons
+    const desktopLight = document.querySelector(
+      "#dark-mode-toggle-desktop .light-icon"
+    );
+    const desktopDark = document.querySelector(
+      "#dark-mode-toggle-desktop .moon-icon"
+    );
+
+    if (isDarkMode) {
+      mobileLight?.classList.add("hidden");
+      mobileDark?.classList.remove("hidden");
+      desktopLight?.classList.add("hidden");
+      desktopDark?.classList.remove("hidden");
+    } else {
+      mobileLight?.classList.remove("hidden");
+      mobileDark?.classList.add("hidden");
+      desktopLight?.classList.remove("hidden");
+      desktopDark?.classList.add("hidden");
+    }
+  }
+
+  // Initialize dark mode
+  const savedDarkMode = localStorage.getItem("darkMode") === "true";
+  if (savedDarkMode) {
+    document.body.classList.add("dark-mode");
+  }
+  updateDarkModeIcons();
+
+  // Setup dark mode toggles
+  setupDarkMode(darkModeToggle);
+  setupDarkMode(darkModeToggleDesktop);
+
+  // Handle window resize
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 768 && nav) {
+      nav.classList.remove("hidden");
+      nav.style.opacity = "1";
+      nav.style.transform = "translateY(0)";
+      animateXToHamburger();
+      navBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Add proper transitions to nav
+  if (nav) {
+    nav.style.transition = "opacity 0.3s ease, transform 0.3s ease";
   }
 });

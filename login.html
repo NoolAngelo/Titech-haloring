@@ -13,7 +13,7 @@
     />
     <title>Login - Halo Ring - TiTech</title>
     <link rel="icon" href="img/TITECH.png" type="image/png" />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css"
@@ -34,6 +34,22 @@
           <span class="ml-3 text-xl text-gray-800">TiTech</span>
         </a>
 
+        <!-- Mobile menu button -->
+        <div class="flex items-center md:hidden">
+          <button
+            id="nav-mobile-btn"
+            class="z-50 block mr-6 text-gray-500 hover:text-gray-900 focus:text-gray-900"
+            aria-label="Mobile menu"
+          >
+            <span
+              class="w-5 h-px mb-1.5 block bg-gray-800 transition-transform duration-300 ease-in-out"
+            ></span>
+            <span
+              class="w-5 h-px block bg-gray-800 transition-opacity duration-300 ease-in-out"
+            ></span>
+          </button>
+        </div>
+
         <nav
           id="nav"
           class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
@@ -48,6 +64,41 @@
             class="font-bold duration-100 transition-color hover:text-amber-600"
             >Documentation</a
           >
+
+          <!-- Dark Mode Toggle -->
+          <button
+            id="dark-mode-toggle"
+            aria-label="Toggle Dark Mode"
+            class="dark-mode-toggle flex items-center justify-center w-10 h-10 ml-6 rounded-full shadow-md transition-all duration-300"
+          >
+            <!-- Sun icon for light mode -->
+            <svg
+              id="light-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 sun-icon"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <!-- Moon icon for dark mode -->
+            <svg
+              id="dark-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 moon-icon hidden"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              />
+            </svg>
+          </button>
+
           <div
             class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden"
           >
@@ -390,5 +441,57 @@
     </footer>
 
     <script src="mobileNav.js"></script>
+    <!-- Mobile Nav JavaScript -->
+    <script src="mobileNav.js"></script>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const darkModeToggle = document.getElementById("dark-mode-toggle");
+        const lightIcon = document.getElementById("light-icon");
+        const darkIcon = document.getElementById("dark-icon");
+
+        // Function to apply transition class to body before changing mode
+        function toggleDarkMode(enable) {
+          // Add transition class
+          document.body.style.transition =
+            "background-color 0.5s ease, color 0.5s ease";
+
+          if (enable) {
+            document.body.classList.add("dark-mode");
+            lightIcon.classList.remove("hidden");
+            darkIcon.classList.add("hidden");
+            localStorage.setItem("darkMode", "enabled");
+          } else {
+            document.body.classList.remove("dark-mode");
+            darkIcon.classList.remove("hidden");
+            lightIcon.classList.add("hidden");
+            localStorage.setItem("darkMode", "disabled");
+          }
+
+          // Remove transition after animation completes to avoid affecting other elements
+          setTimeout(() => {
+            document.body.style.transition = "";
+          }, 500);
+        }
+
+        // Check if user has already set a preference
+        const darkModePref = localStorage.getItem("darkMode");
+
+        // Set initial state based on preference or system preference
+        if (
+          darkModePref === "enabled" ||
+          (darkModePref === null &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          toggleDarkMode(true);
+        }
+
+        darkModeToggle.addEventListener("click", () => {
+          // Toggle dark mode based on current state
+          toggleDarkMode(!document.body.classList.contains("dark-mode"));
+        });
+      });
+    </script>
   </body>
 </html>

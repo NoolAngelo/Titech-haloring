@@ -1,6 +1,6 @@
-/* Dark mode variables */
+/* Modern Design System */
 :root {
-  /* Light mode (default) */
+  /* Color System - Extended */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f7fafc;
   --color-bg-tertiary: #edf2f7;
@@ -10,27 +10,109 @@
   --color-accent: #fabc6b;
   --color-accent-hover: #f6ad4b;
   --color-accent-dark: #e8ab5c;
+  --color-accent-light: #fcd9a1;
+  --color-accent-ultra-light: #fef2e2;
   --color-border: #e2e8f0;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --shadow-color-dark: rgba(0, 0, 0, 0.2);
+  --color-border-light: #edf2f7;
+  --color-error: #e53e3e;
+  --color-success: #38a169;
+  --color-warning: #ed8936;
+  --color-info: #4299e1;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-outline: 0 0 0 3px rgba(250, 188, 107, 0.5);
+
+  /* Typography */
+  --font-family-base: "Poppins", sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 3.75rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Z-index */
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-auto: auto;
+
+  /* Card settings */
   --card-bg: #ffffff;
+  --card-border-radius: var(--radius-lg);
+  --card-shadow: var(--shadow-md);
+  --card-hover-shadow: var(--shadow-xl);
 }
 
-/* Dark mode class */
+/* Dark mode class with updated design system */
 .dark-mode {
-  --color-bg-primary: #1a1f2c; /* Slightly bluer dark background */
-  --color-bg-secondary: #252f42; /* More vibrant dark secondary */
+  --color-bg-primary: #1a1f2c;
+  --color-bg-secondary: #252f42;
   --color-bg-tertiary: #2d3748;
-  --color-text-primary: #f8fafc; /* Brighter white text */
-  --color-text-secondary: #cbd5e0; /* Better contrast secondary text */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e0;
   --color-text-tertiary: #a0aec0;
-  --color-accent: #fabc6b; /* Keep accent color consistent */
+  --color-accent: #fabc6b;
   --color-accent-hover: #f6ad4b;
   --color-accent-dark: #e8ab5c;
-  --color-border: #3a4a61; /* Bluer border */
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-color-dark: rgba(0, 0, 0, 0.5);
-  --card-bg: #252f42; /* Card background */
+  --color-accent-light: #fcd9a1;
+  --color-accent-ultra-light: #5c4a33;
+  --color-border: #3a4a61;
+  --color-border-light: #2d3748;
+  --card-bg: #252f42;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  --shadow-outline: 0 0 0 3px rgba(250, 188, 107, 0.3);
 }
 
 /* Dark mode specific text adjustments */
@@ -112,6 +194,54 @@ body.dark-mode .shadow-lg,
 body.dark-mode .hover\:shadow-xl:hover {
   box-shadow: 0 10px 15px -3px var(--shadow-color),
     0 4px 6px -2px var(--shadow-color-dark);
+}
+
+/* Contact page dark mode styles */
+body.dark-mode .contact-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .bg-gray-100 {
+  background-color: var(--color-bg-secondary);
+}
+
+body.dark-mode .contact-shape-1 {
+  background-color: #222222; /* Slightly darker in dark mode */
+}
+
+body.dark-mode .contact-shape-2 {
+  background-color: #e8ab5c; /* Slightly darker amber in dark mode */
+  opacity: 0.8;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+  border-color: var(--color-accent);
+}
+
+body.dark-mode .bg-gray-200 {
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Contact page animations */
+.contact-shape {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.contact-wrapper:hover .contact-shape-1 {
+  transform: rotate(-8deg) scale(1.15);
+}
+
+.contact-wrapper:hover .contact-shape-2 {
+  transform: rotate(8deg) scale(1.15);
 }
 
 /* Dark mode specific hover effects */
@@ -281,6 +411,138 @@ a.bg-gray-800:active {
 .counter-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Card Design */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal) var(--ease-out),
+    box-shadow var(--transition-normal) var(--ease-out);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Apply modern card design to existing elements */
+.rounded-lg.shadow-lg,
+.rounded-lg.shadow-2xl {
+  border-radius: var(--card-border-radius) !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: transform var(--transition-normal) var(--ease-out),
+    box-shadow var(--transition-normal) var(--ease-out) !important;
+}
+
+.rounded-lg.shadow-lg:hover,
+.rounded-lg.shadow-2xl:hover,
+.hover\:shadow-xl:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: var(--card-hover-shadow) !important;
+}
+
+/* Enhanced Micro-interactions */
+/* Button hover effects with ripple */
+button,
+.button,
+[type="submit"],
+a.bg-amber-600,
+a.bg-gray-800 {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal) var(--ease-out) !important;
+  transform: translateZ(0);
+}
+
+button:hover,
+.button:hover,
+[type="submit"]:hover,
+a.bg-amber-600:hover,
+a.bg-gray-800:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+button:active,
+.button:active,
+[type="submit"]:active,
+a.bg-amber-600:active,
+a.bg-gray-800:active {
+  transform: translateY(0) !important;
+}
+
+/* Ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Navigation link hover effect */
+nav a {
+  position: relative;
+  transition: color var(--transition-normal) var(--ease-out);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform var(--transition-normal) var(--ease-out);
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Form field focus effects */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: var(--shadow-outline) !important;
+  outline: none !important;
+}
+
+/* Animated feature icons */
+.feature-icon {
+  transition: transform var(--transition-normal) var(--ease-out);
+}
+
+.feature-icon:hover {
+  transform: scale(1.1) rotate(5deg);
 }
 
 /* Apply theme variables */
@@ -459,6 +721,12 @@ textarea:focus {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Fix all buttons with bg-amber-600 class */
+.bg-amber-600 {
+  background-color: var(--color-accent) !important;
+  transition: all 0.3s ease;
+}
+
 #waitlist-form button:hover {
   background-color: var(--color-accent-hover);
   transform: translateY(-2px);
@@ -543,6 +811,16 @@ body.dark-mode .rounded-lg.shadow-lg:hover {
 /* Make overview cards look better in dark mode */
 body.dark-mode #overview .bg-white {
   background-color: var(--card-bg) !important;
+}
+
+/* Fix all cards in light and dark mode */
+.rounded-lg.shadow-lg {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rounded-lg.shadow-lg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Feature icons in dark mode */
@@ -651,4 +929,88 @@ body,
 body * {
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mobile Navigation Improvements */
+@media (max-width: 767px) {
+  #nav {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  #nav a {
+    padding: 12px 16px;
+    display: block;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  #nav a:last-child {
+    border-bottom: none;
+  }
+
+  body.dark-mode #nav {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Header improvements for mobile */
+  header {
+    padding: 15px 20px !important;
+  }
+
+  .header-sticky {
+    padding: 10px 20px !important;
+  }
+
+  /* Fix logo size on mobile */
+  header img.h-8 {
+    height: 30px;
+  }
+
+  /* Fix product images on mobile */
+  .product-image {
+    max-width: 90% !important;
+    margin: 0 auto;
+  }
+
+  /* Improve spacing on mobile */
+  .py-24 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Fix button sizes on mobile */
+  button,
+  .button,
+  [type="submit"] {
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* Improved image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Optimize hero section on all screen sizes */
+@media (max-width: 1024px) {
+  .hero-content {
+    padding: 3rem 1.5rem !important;
+  }
+
+  h1.text-4xl {
+    font-size: 2.5rem !important;
+  }
+
+  h2.text-3xl {
+    font-size: 1.875rem !important;
+  }
 }
