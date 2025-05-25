@@ -13,30 +13,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Mobile navigation functionality
   if (navBtn && nav) {
-    navBtn.addEventListener("click", function () {
+    navBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
       const isOpen = nav.classList.contains("hidden");
 
       if (isOpen) {
         // Show menu
         nav.classList.remove("hidden");
         nav.style.opacity = "0";
-        nav.style.transform = "translateY(-10px)";
+        nav.style.transform = "translateY(-20px) scale(0.95)";
+
+        // Force a reflow to ensure the initial styles are applied
+        nav.offsetHeight;
 
         setTimeout(() => {
           nav.style.opacity = "1";
-          nav.style.transform = "translateY(0)";
+          nav.style.transform = "translateY(0) scale(1)";
         }, 10);
 
         // Animate hamburger to X
         animateHamburgerToX();
         navBtn.setAttribute("aria-expanded", "true");
+
+        // Add body class to prevent scrolling
+        document.body.style.overflow = "hidden";
       } else {
         // Hide menu
         nav.style.opacity = "0";
-        nav.style.transform = "translateY(-10px)";
+        nav.style.transform = "translateY(-20px) scale(0.95)";
 
         setTimeout(() => {
           nav.classList.add("hidden");
+          document.body.style.overflow = "";
         }, 300);
 
         // Animate X back to hamburger
@@ -53,10 +61,11 @@ document.addEventListener("DOMContentLoaded", function () {
         !nav.classList.contains("hidden")
       ) {
         nav.style.opacity = "0";
-        nav.style.transform = "translateY(-10px)";
+        nav.style.transform = "translateY(-20px) scale(0.95)";
 
         setTimeout(() => {
           nav.classList.add("hidden");
+          document.body.style.overflow = "";
         }, 300);
 
         animateXToHamburger();
@@ -70,10 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
       link.addEventListener("click", () => {
         if (window.innerWidth < 768) {
           nav.style.opacity = "0";
-          nav.style.transform = "translateY(-10px)";
+          nav.style.transform = "translateY(-20px) scale(0.95)";
 
           setTimeout(() => {
             nav.classList.add("hidden");
+            document.body.style.overflow = "";
           }, 300);
 
           animateXToHamburger();
@@ -81,24 +91,44 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
+
+    // Close menu on escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !nav.classList.contains("hidden")) {
+        nav.style.opacity = "0";
+        nav.style.transform = "translateY(-20px) scale(0.95)";
+
+        setTimeout(() => {
+          nav.classList.add("hidden");
+          document.body.style.overflow = "";
+        }, 300);
+
+        animateXToHamburger();
+        navBtn.setAttribute("aria-expanded", "false");
+      }
+    });
   }
 
-  // Hamburger animation functions
+  // Improved hamburger animation functions
   function animateHamburgerToX() {
     const lines = navBtn.querySelectorAll(".hamburger-line");
     if (lines.length >= 3) {
-      lines[0].style.transform = "rotate(45deg) translateY(6px)";
+      lines[0].style.transform =
+        "rotate(45deg) translateY(8px) translateX(6px)";
       lines[1].style.opacity = "0";
-      lines[2].style.transform = "rotate(-45deg) translateY(-6px)";
+      lines[1].style.transform = "scale(0)";
+      lines[2].style.transform =
+        "rotate(-45deg) translateY(-8px) translateX(6px)";
     }
   }
 
   function animateXToHamburger() {
     const lines = navBtn.querySelectorAll(".hamburger-line");
     if (lines.length >= 3) {
-      lines[0].style.transform = "rotate(0) translateY(0)";
+      lines[0].style.transform = "rotate(0) translateY(0) translateX(0)";
       lines[1].style.opacity = "1";
-      lines[2].style.transform = "rotate(0) translateY(0)";
+      lines[1].style.transform = "scale(1)";
+      lines[2].style.transform = "rotate(0) translateY(0) translateX(0)";
     }
   }
 
@@ -157,14 +187,21 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.innerWidth >= 768 && nav) {
       nav.classList.remove("hidden");
       nav.style.opacity = "1";
-      nav.style.transform = "translateY(0)";
+      nav.style.transform = "translateY(0) scale(1)";
       animateXToHamburger();
       navBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
     }
   });
 
   // Add proper transitions to nav
   if (nav) {
-    nav.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+    nav.style.transition =
+      "opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)";
+  }
+
+  // Initialize nav visibility on page load
+  if (nav && window.innerWidth < 768) {
+    nav.classList.add("hidden");
   }
 });

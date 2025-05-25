@@ -933,63 +933,168 @@ body * {
 
 /* Mobile Navigation Improvements */
 @media (max-width: 767px) {
+  /* Header mobile adjustments */
+  header {
+    height: 68px !important;
+    padding: 12px 16px !important;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  body.dark-mode header {
+    background-color: #1f2937 !important;
+    border-bottom: 1px solid rgba(75, 85, 99, 0.3) !important;
+  }
+
+  /* Fix the main navigation container */
   #nav {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: 20px;
+    position: fixed !important;
+    top: 80px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    z-index: 40;
+    padding: 16px 0 !important;
   }
 
   #nav a {
-    padding: 12px 16px;
-    display: block;
-    border-bottom: 1px solid var(--color-border-light);
+    padding: 14px 20px !important;
+    margin: 0 8px !important;
+    display: block !important;
+    border-radius: 8px !important;
+    border-bottom: none !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #374151 !important;
+    transition: all 0.2s ease !important;
+  }
+
+  #nav a:hover {
+    background-color: #fef3e2 !important;
+    color: #f59e0b !important;
+    transform: translateX(4px);
   }
 
   #nav a:last-child {
-    border-bottom: none;
+    border-bottom: none !important;
   }
 
+  /* Dark mode mobile nav */
   body.dark-mode #nav {
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background-color: rgba(31, 41, 55, 0.95) !important;
+    border: 1px solid rgba(75, 85, 99, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
   }
 
-  /* Header improvements for mobile */
-  header {
-    padding: 15px 20px !important;
+  body.dark-mode #nav a {
+    color: #e5e7eb !important;
   }
 
-  .header-sticky {
-    padding: 10px 20px !important;
+  body.dark-mode #nav a:hover {
+    background-color: rgba(250, 188, 107, 0.1) !important;
+    color: #fabc6b !important;
+  }
+
+  /* Header improvements for mobile - Remove conflicting styles */
+  #main-header {
+    padding-right: 0 !important;
+  }
+
+  /* Dark mode mobile buttons */
+  body.dark-mode #nav-mobile-btn {
+    background-color: #374151 !important;
+    border-color: rgba(75, 85, 99, 0.5) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  body.dark-mode #dark-mode-toggle {
+    background-color: #374151 !important;
+    border-color: rgba(75, 85, 99, 0.5) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* Hamburger lines in dark mode */
+  body.dark-mode #nav-mobile-btn .hamburger-line {
+    background-color: #e5e7eb !important;
   }
 
   /* Fix logo size on mobile */
-  header img.h-8 {
-    height: 30px;
+  header img.h-10,
+  header img.w-10,
+  header img.h-12,
+  header img.w-12 {
+    height: 28px !important;
+    width: 28px !important;
+  }
+
+  /* Fix logo text */
+  header .text-lg,
+  header .text-xl {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
   }
 
   /* Fix product images on mobile */
   .product-image {
     max-width: 90% !important;
-    margin: 0 auto;
+    margin: 0 auto !important;
   }
 
   /* Improve spacing on mobile */
   .py-24 {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
 
   /* Fix button sizes on mobile */
-  button,
+  button:not(#nav-mobile-btn):not(#dark-mode-toggle),
   .button,
   [type="submit"] {
     padding: 0.75rem 1rem !important;
     font-size: 1rem !important;
+  }
+
+  /* Hero section mobile adjustments */
+  .lg\:pt-40,
+  .xl\:pt-40 {
+    padding-top: 2rem !important;
+  }
+
+  .lg\:pb-40,
+  .xl\:pb-64 {
+    padding-bottom: 2rem !important;
+  }
+
+  /* Mobile hero content positioning */
+  .pt-48 {
+    padding-top: 2rem !important;
+  }
+
+  .-mt-32 {
+    margin-top: 0 !important;
+  }
+
+  /* Typography adjustments for mobile */
+  .text-5xl {
+    font-size: 2.5rem !important;
+  }
+
+  .text-6xl {
+    font-size: 3rem !important;
+  }
+
+  .sm\:text-6xl {
+    font-size: 2.5rem !important;
   }
 }
 
