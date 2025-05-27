@@ -6,10 +6,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navBtn = document.getElementById("nav-mobile-btn");
   const nav = document.getElementById("nav");
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
-  const darkModeToggleDesktop = document.getElementById(
-    "dark-mode-toggle-desktop"
-  );
+
+  // Get all dark mode toggle buttons
+  const darkModeToggles = document.querySelectorAll('[id^="dark-mode-toggle"]');
+  const lightIcons = document.querySelectorAll(".sun-icon, .light-icon");
+  const darkIcons = document.querySelectorAll(".moon-icon, .dark-icon");
 
   // Mobile navigation functionality
   if (navBtn && nav) {
@@ -132,55 +133,56 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Dark mode functionality for both mobile and desktop
-  function setupDarkMode(toggle) {
-    if (!toggle) return;
+  // Dark mode functionality
+  function toggleDarkMode(enable) {
+    // Add transition class
+    document.body.style.transition =
+      "background-color 0.5s ease, color 0.5s ease";
 
-    toggle.addEventListener("click", function () {
-      const isDarkMode = document.body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", isDarkMode);
-      updateDarkModeIcons();
-    });
-  }
-
-  function updateDarkModeIcons() {
-    const isDarkMode = document.body.classList.contains("dark-mode");
-
-    // Update mobile icons
-    const mobileLight = document.querySelector("#dark-mode-toggle #light-icon");
-    const mobileDark = document.querySelector("#dark-mode-toggle #dark-icon");
-
-    // Update desktop icons
-    const desktopLight = document.querySelector(
-      "#dark-mode-toggle-desktop .light-icon"
-    );
-    const desktopDark = document.querySelector(
-      "#dark-mode-toggle-desktop .moon-icon"
-    );
-
-    if (isDarkMode) {
-      mobileLight?.classList.add("hidden");
-      mobileDark?.classList.remove("hidden");
-      desktopLight?.classList.add("hidden");
-      desktopDark?.classList.remove("hidden");
+    if (enable) {
+      document.body.classList.add("dark-mode");
+      document.documentElement.classList.add("dark");
+      lightIcons.forEach((icon) => icon.classList.remove("hidden"));
+      darkIcons.forEach((icon) => icon.classList.add("hidden"));
+      localStorage.setItem("darkMode", "enabled");
     } else {
-      mobileLight?.classList.remove("hidden");
-      mobileDark?.classList.add("hidden");
-      desktopLight?.classList.remove("hidden");
-      desktopDark?.classList.add("hidden");
+      document.body.classList.remove("dark-mode");
+      document.documentElement.classList.remove("dark");
+      darkIcons.forEach((icon) => icon.classList.remove("hidden"));
+      lightIcons.forEach((icon) => icon.classList.add("hidden"));
+      localStorage.setItem("darkMode", "disabled");
     }
+
+    // Remove transition after animation completes
+    setTimeout(() => {
+      document.body.style.transition = "";
+    }, 500);
   }
 
   // Initialize dark mode
-  const savedDarkMode = localStorage.getItem("darkMode") === "true";
-  if (savedDarkMode) {
-    document.body.classList.add("dark-mode");
-  }
-  updateDarkModeIcons();
+  const darkModePref = localStorage.getItem("darkMode");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  // Setup dark mode toggles
-  setupDarkMode(darkModeToggle);
-  setupDarkMode(darkModeToggleDesktop);
+  if (darkModePref === "enabled" || (darkModePref === null && prefersDark)) {
+    toggleDarkMode(true);
+  }
+
+  // Add click event listeners to all dark mode toggle buttons
+  darkModeToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const isDarkMode = document.body.classList.contains("dark-mode");
+      toggleDarkMode(!isDarkMode);
+    });
+  });
+
+  // Listen for system dark mode changes
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => {
+      if (localStorage.getItem("darkMode") === null) {
+        toggleDarkMode(e.matches);
+      }
+    });
 
   // Handle window resize
   window.addEventListener("resize", function () {
