@@ -1,36 +1,49 @@
-# Halo Ring - TiTech Contact Page
+# Halo Ring by TiTech
 
-A modern, responsive contact page built with HTML, CSS (Tailwind CSS), and JavaScript. This project showcases a beautifully designed contact form with interactive elements, dark mode support, and mobile responsiveness.
+A modern smart ring device that combines style with functionality, featuring NFC payment capabilities, reward systems, and advanced security features. This repository contains the landing page and documentation for the Halo Ring product.
 
 ![TiTech Logo](img/TITECH.png)
 
 ## 🌟 Features
 
-- **Modern UI Design**: Clean and professional interface with attention to detail
-- **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
-- **Dark Mode Support**: Toggle between light and dark themes
-- **Interactive Elements**:
-  - Animated form inputs
-  - Social media links
-  - Contact information cards
-  - Ripple effect on buttons
-- **Form Validation**: Client-side validation for required fields
-- **Accessibility**: ARIA labels and semantic HTML
-- **Cross-browser Compatible**: Works across modern browsers
+- **Premium Build**: Crafted with high-grade Titanium metal
+- **NFC Technology**: Seamless contactless payments
+- **Reward System**: Halo Pay Rewards with cashback benefits
+- **Security Features**: Advanced security measures for transaction protection
+- **Modern UI**: Clean and professional interface with:
+  - Dark mode support
+  - Responsive design for all devices
+  - Interactive elements and animations
+  - User-friendly navigation
+- **Extended Battery Life**: Long-lasting performance
+- **Water Resistant**: Durable design for daily use
+
+## 🔧 Technical Specifications
+
+### Size and Weight
+
+- **Material**: High-grade Titanium
+- **Ring Sizes**:
+  - 6.7mm (Sizes 4.5-8.5)
+  - 6.2mm (Sizes 9-16)
+- **Ring Weight**: ~7g
+- **Packaged Weight**: ~66g
+- **Box Dimensions**: 96mm x 96mm x 15mm
 
 ## 🚀 Technologies Used
 
 - HTML5
 - CSS3 (Tailwind CSS)
 - JavaScript
+- NFC Technology
 - Google Fonts (Poppins)
 - SVG Icons
 
 ## 📋 Prerequisites
 
 - Modern web browser
-- Basic understanding of HTML, CSS, and JavaScript
-- Text editor (VS Code recommended)
+- NFC-enabled payment terminal (for merchants)
+- Halo Ring mobile app (for users)
 
 ## 🛠️ Installation
 
@@ -46,23 +59,20 @@ git clone https://github.com/yourusername/Titech-haloring.git
 cd Titech-haloring
 ```
 
-3. Open `contactus.html` in your web browser or use a local server.
+3. Open `index.html` in your web browser or use a local server.
 
-## 📱 Usage
+## 💳 Payment Features
 
-The contact page includes:
-
-- Contact form with validation
-- Company information section
-- Social media links
-- Dark mode toggle
-- Mobile-friendly navigation
+- **Contactless Payments**: Quick and secure transactions
+- **Reward System**: Earn cashback on eligible purchases
+- **Security**: Advanced encryption and protection measures
+- **Mobile Integration**: Sync with the Halo Ring mobile app
 
 ## 🎨 Customization
 
 ### Colors
 
-The project uses Tailwind CSS classes for styling. Main colors used:
+The project uses Tailwind CSS for styling with a custom color palette:
 
 - Primary: Amber-600 (`#d97706`)
 - Text: Gray-800 (`#1f2937`)
@@ -86,8 +96,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Contact
 
-- Email: 
-- Phone: 
+- Email: [Contact Support]
 - Location: Filinvest Ave, Alabang, Muntinlupa, Metro Manila
 
 ## 🙏 Acknowledgments
