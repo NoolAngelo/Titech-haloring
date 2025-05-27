@@ -1,0 +1,33 @@
+{
+  "name": "halo-ring-backend",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers backend for Halo Ring website",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:staging": "wrangler deploy --env staging",
+    "tail": "wrangler tail",
+    "test": "npm run test:unit",
+    "test:unit": "vitest",
+    "cf:login": "wrangler auth login",
+    "cf:whoami": "wrangler auth whoami",
+    "kv:create": "wrangler kv:namespace create HALO_DB",
+    "kv:create:preview": "wrangler kv:namespace create HALO_DB --preview",
+    "secret:put": "wrangler secret put"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "halo-ring",
+    "backend",
+    "api"
+  ],
+  "author": "TiTech",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "wrangler": "^3.19.0",
+    "vitest": "^1.0.0"
+  }
+}

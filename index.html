@@ -110,14 +110,7 @@
       }
     </script>
     
-    <!-- Add Open Graph tags -->
-    <meta property="og:title" content="Halo Ring - Contactless Payment Solution by TiTech">
-    <meta property="og:description" content="A convenient, secure, and stylish way to simplify your payment experience.">
-    <meta property="og:image" content="https://yourdomain.com/img/matte_no_bg.png">
-    <meta property="og:url" content="https://yourdomain.com">
-    
-    <!-- Add Twitter Card tags -->
-    <meta name="twitter:card" content="summary_large_image">
+
     
     <!-- Schema.org Product markup for SEO -->
     <script type="application/ld+json">
@@ -1783,31 +1776,70 @@
    
     <!-- Form submission handling -->
     <script>
-      document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+      // Configuration - Update this with your actual Worker URL
+      const WORKER_URL = 'https://your-worker-url.workers.dev'; // Replace with your actual Worker URL
+      
+      document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         
         const emailInput = this.querySelector('input[type="email"]');
         const email = emailInput.value.trim();
+        const submitButton = this.querySelector('button[type="submit"]');
         
         if (!email) {
           showMessage('Please enter a valid email address.', 'error');
           return;
         }
         
-        // Here you would typically send this to your backend
-        // For now, we'll simulate a successful submission
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="loading"></span> Joining...';
         
-        // Store email in localStorage 
-        const waitlistEmails = JSON.parse(localStorage.getItem('waitlistEmails') || '[]');
-        waitlistEmails.push({
-          email: email,
-          date: new Date().toISOString()
-        });
-        localStorage.setItem('waitlistEmails', JSON.stringify(waitlistEmails));
-        
-        // Clear the form and show success message
-        this.reset();
-        showMessage('Thank you for joining our waitlist! We\'ll keep you updated on our launch.', 'success');
+        try {
+          const response = await fetch(`${WORKER_URL}/api/waitlist`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email })
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            this.reset();
+            showMessage(result.message, 'success');
+            
+            // Still store locally as backup
+            const waitlistEmails = JSON.parse(localStorage.getItem('waitlistEmails') || '[]');
+            waitlistEmails.push({
+              email: email,
+              date: new Date().toISOString(),
+              synced: true
+            });
+            localStorage.setItem('waitlistEmails', JSON.stringify(waitlistEmails));
+          } else {
+            showMessage(result.error || 'Something went wrong. Please try again.', 'error');
+          }
+        } catch (error) {
+          console.error('Network error:', error);
+          showMessage('Network error. Please check your connection and try again.', 'error');
+          
+          // Fallback: store locally if network fails
+          const waitlistEmails = JSON.parse(localStorage.getItem('waitlistEmails') || '[]');
+          waitlistEmails.push({
+            email: email,
+            date: new Date().toISOString(),
+            synced: false
+          });
+          localStorage.setItem('waitlistEmails', JSON.stringify(waitlistEmails));
+          this.reset();
+          showMessage('Temporarily stored locally. We\'ll sync when connection is restored.', 'success');
+        } finally {
+          // Re-enable button
+          submitButton.disabled = false;
+          submitButton.innerHTML = '<span class="flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg><span class="font-bold">Join</span></span>';
+        }
       });
       
       function showMessage(message, type) {
