@@ -14,11 +14,49 @@
     <title>Login - Halo Ring - TiTech</title>
     <link rel="icon" href="img/TITECH.png" type="image/png" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Modern Tailwind CSS v3.4+ with Custom Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#fef2e2",
+                100: "#fde8c5",
+                200: "#fcd08d",
+                300: "#fabc6b",
+                400: "#f6ad4b",
+                500: "#f59e0b",
+                600: "#e8ab5c",
+                700: "#d97706",
+                800: "#92400e",
+                900: "#78350f",
+              },
+              dark: {
+                50: "#f8fafc",
+                100: "#cbd5e0",
+                200: "#a0aec0",
+                300: "#718096",
+                400: "#4a5568",
+                500: "#2d3748",
+                600: "#252f42",
+                700: "#1a1f2c",
+                800: "#171923",
+                900: "#0f1419",
+              },
+            },
+            fontFamily: {
+              sans: ["Poppins", "ui-sans-serif", "system-ui", "sans-serif"],
+              display: ["Poppins", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+          },
+        },
+        plugins: [],
+      };
+    </script>
   </head>
   <body class="overflow-x-hidden antialiased">
     <!-- Header Section -->
@@ -72,7 +110,7 @@
 
           <button
             id="nav-mobile-btn"
-            class="flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all duration-200 border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+            class="flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all duration-200 border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
             aria-label="Mobile menu"
             aria-expanded="false"
             aria-controls="nav"
@@ -97,12 +135,12 @@
         >
           <a
             href="index.html"
-            class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-amber-600"
+            class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-brand-300"
             >Home</a
           >
           <a
             href="https://haloring-titech.netlify.app/"
-            class="font-bold duration-100 transition-color hover:text-amber-600"
+            class="font-bold duration-100 transition-color hover:text-brand-300"
             >Documentation</a
           >
 

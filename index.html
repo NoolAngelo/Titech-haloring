@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <!-- Add preload for critical resources -->
-    <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="mobileNav.js" as="script">
     
     <!-- Add preconnect for third-party domains -->
@@ -20,13 +19,96 @@
     <meta name="keywords" content="Halo Ring, Contactless Payment, TiTech, Secure Payment, Wearable Technology, NFC Ring" />
     <meta name="author" content="TiTech" />
     <title>Halo Ring - TiTech</title>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="icon" href="./img/TITECH.png" type="image/png">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    
+    <!-- Modern Tailwind CSS v3.4+ with Custom Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'brand': {
+                50: '#fef2e2',
+                100: '#fde8c5',
+                200: '#fcd08d',
+                300: '#fabc6b',
+                400: '#f6ad4b',
+                500: '#f59e0b',
+                600: '#e8ab5c',
+                700: '#d97706',
+                800: '#92400e',
+                900: '#78350f'
+              },
+              'dark': {
+                50: '#f8fafc',
+                100: '#cbd5e0',
+                200: '#a0aec0',
+                300: '#718096',
+                400: '#4a5568',
+                500: '#2d3748',
+                600: '#252f42',
+                700: '#1a1f2c',
+                800: '#171923',
+                900: '#0f1419'
+              }
+            },
+            fontFamily: {
+              'sans': ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              'display': ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif']
+            },
+            animation: {
+              'slide-down': 'slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+              'slide-up': 'slideUp 0.3s ease-out',
+              'fade-in': 'fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+              'scale-in': 'scaleIn 0.3s ease-out',
+              'bounce-gentle': 'bounceGentle 2s infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate'
+            },
+            keyframes: {
+              slideDown: {
+                '0%': { transform: 'translateY(-100%)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' }
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(30px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' }
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.95)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' }
+              },
+              bounceGentle: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-5px)' }
+              },
+              glow: {
+                '0%': { boxShadow: '0 0 5px #fabc6b, 0 0 10px #fabc6b' },
+                '100%': { boxShadow: '0 0 10px #fabc6b, 0 0 20px #fabc6b, 0 0 30px #fabc6b' }
+              }
+            },
+            backdropBlur: {
+              'xs': '2px'
+            },
+            spacing: {
+              '18': '4.5rem',
+              '88': '22rem',
+              '128': '32rem'
+            },
+            maxWidth: {
+              '8xl': '88rem',
+              '9xl': '96rem'
+            }
+          }
+        },
+        plugins: []
+      }
+    </script>
     
     <!-- Add Open Graph tags -->
     <meta property="og:title" content="Halo Ring - Contactless Payment Solution by TiTech">
@@ -80,193 +162,95 @@
     </script>
     
     <style>
-      /* Global font family consistency */
-      body {
-        font-family: 'Poppins', sans-serif;
-      }
+      /* Import Poppins font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
       
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-      }
-      
-      p, span, a, li, button, input {
-        font-family: 'Poppins', sans-serif;
-      }
-      
-      /* Brand color consistency */
-      .text-amber-600, .hover\:text-amber-600:hover, 
-      .border-fabc6b, .bg-fabc6b, [style*="background-color: #fabc6b"] {
-        color: #fabc6b;
-      }
-      
-      .border-fabc6b {
-        border-color: #fabc6b;
-      }
-      
-      .bg-fabc6b, [style*="background-color: #fabc6b"] {
-        background-color: #fabc6b;
-      }
-      
-      /* Improving buttons */
-      button, .button, [type="submit"] {
-        transition: all 0.3s ease;
-      }
-      
-      button:hover, .button:hover, [type="submit"]:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* Global font family */
+      * {
+        font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
       }
 
-      /* Progress bar styles */
+      /* Progress bar */
       #progress-bar {
         position: fixed;
         top: 0;
         left: 0;
-        height: 3px;
+        height: 4px;
         width: 0%;
-        background-color: #fabc6b;
+        background: linear-gradient(90deg, #fabc6b, #f59e0b);
         z-index: 9999;
         transition: width 0.2s ease;
+        box-shadow: 0 0 10px #fabc6b;
       }
 
-      /* Sticky header styles */
+      /* Sticky header animation */
       .header-sticky {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: var(--color-bg-primary);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        animation: slideDown 0.5s ease;
-        z-index: 100;
+        animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       @keyframes slideDown {
         from {
           transform: translateY(-100%);
+          opacity: 0;
         }
         to {
           transform: translateY(0);
+          opacity: 1;
         }
       }
 
-      /* Force hide class for the SVG when header is sticky */
-      .force-hidden {
-        display: none !important;
+      /* Button hover effects */
+      .btn-hover:hover {
+        transform: translateY(-2px);
       }
 
-      /* Enhanced mobile navigation styles */
-      @media (max-width: 767px) {
-        /* Header mobile adjustments */
-        header {
-          height: 68px !important;
-          padding: 12px 16px !important;
-          background-color: #ffffff;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
+      /* Loading animation */
+      .loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0 -10px;
+        border: 2px solid transparent;
+        border-top: 2px solid #fabc6b;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
 
-        body.dark-mode header {
-          background-color: #1f2937 !important;
-          border-bottom: 1px solid rgba(75, 85, 99, 0.3) !important;
-        }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
 
-        #nav {
-          position: fixed !important;
-          top: 80px !important;
-          left: 16px !important;
-          right: 16px !important;
-          width: auto !important;
-          max-width: none !important;
-          margin: 0 !important;
-          background-color: #ffffff !important;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-          border-radius: 12px !important;
-          border: 1px solid rgba(0, 0, 0, 0.1) !important;
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          max-height: calc(100vh - 120px) !important;
-          overflow-y: auto !important;
-          z-index: 40 !important;
-          padding: 16px 0 !important;
-          transition: opacity 0.3s ease, transform 0.3s ease !important;
-        }
-        
-        #nav a {
-          padding: 14px 20px !important;
-          margin: 0 8px !important;
-          display: block !important;
-          border-radius: 8px !important;
-          border-bottom: none !important;
-          font-size: 16px !important;
-          font-weight: 500 !important;
-          color: #374151 !important;
-          transition: all 0.2s ease !important;
-        }
-        
-        #nav a:hover {
-          background-color: #fef3e2 !important;
-          color: #f59e0b !important;
-          transform: translateX(4px) !important;
-        }
-        
-        /* Clean mobile header with space for buttons */
-        #main-header {
-          padding-right: 0 !important;
-        }
-        
-        /* Hamburger animation styles */
-        .hamburger-line {
-          transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        
-        /* Mobile button styling */
-        #nav-mobile-btn,
-        #dark-mode-toggle {
-          backdrop-filter: blur(10px);
-        }
-        
-        #nav-mobile-btn:active,
-        #dark-mode-toggle:active {
-          transform: scale(0.95);
-        }
-
-        /* Dark mode mobile nav styles */
-        body.dark-mode #nav {
-          background-color: rgba(31, 41, 55, 0.95) !important;
-          border: 1px solid rgba(75, 85, 99, 0.3) !important;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
-        }
-
-        body.dark-mode #nav a {
-          color: #e5e7eb !important;
-        }
-
-        body.dark-mode #nav a:hover {
-          background-color: rgba(250, 188, 107, 0.1) !important;
-          color: #fabc6b !important;
-        }
-
-        body.dark-mode #nav-mobile-btn {
-          background-color: #374151 !important;
-          border-color: rgba(75, 85, 99, 0.5) !important;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-        }
-
-        body.dark-mode #dark-mode-toggle {
-          background-color: #374151 !important;
-          border-color: rgba(75, 85, 99, 0.5) !important;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-        }
-
-        body.dark-mode #nav-mobile-btn .hamburger-line {
-          background-color: #e5e7eb !important;
-        }
+      /* Section animations */
+      .animate-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
-      /* Smooth scrolling for anchor links */
-      html {
-        scroll-behavior: smooth;
+      .animate-section.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Gradient text effect */
+      .gradient-text {
+        background: linear-gradient(90deg, #fabc6b, #f59e0b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
       }
     </style>
   </head>
@@ -294,44 +278,44 @@
         >
           <a
             href="index.html"
-            class="py-3 px-4 w-full text-center font-medium duration-200 md:ml-12 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-amber-600 hover:bg-amber-50 md:hover:bg-transparent rounded-lg md:rounded-none"
+            class="py-3 px-4 w-full text-center font-medium duration-200 md:ml-12 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-brand-300 hover:bg-brand-50 md:hover:bg-transparent rounded-lg md:rounded-none"
             >Home</a
           >
 
           <a
             href="#overview"
-            class="py-3 px-4 w-full text-center font-medium duration-200 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-amber-600 hover:bg-amber-50 md:hover:bg-transparent rounded-lg md:rounded-none"
+            class="py-3 px-4 w-full text-center font-medium duration-200 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-brand-300 hover:bg-brand-50 md:hover:bg-transparent rounded-lg md:rounded-none"
             >Overview</a
           >
           <a
             href="#features"
-            class="py-3 px-4 w-full text-center font-medium duration-200 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-amber-600 hover:bg-amber-50 md:hover:bg-transparent rounded-lg md:rounded-none"
+            class="py-3 px-4 w-full text-center font-medium duration-200 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-brand-300 hover:bg-brand-50 md:hover:bg-transparent rounded-lg md:rounded-none"
             >Features</a
           >
           <a
             href="#specification"
-            class="py-3 px-4 w-full text-center font-medium duration-200 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-amber-600 hover:bg-amber-50 md:hover:bg-transparent rounded-lg md:rounded-none"
+            class="py-3 px-4 w-full text-center font-medium duration-200 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-brand-300 hover:bg-brand-50 md:hover:bg-transparent rounded-lg md:rounded-none"
             >Specification</a
           >
           <a
             href="#ourteam"
-            class="py-3 px-4 w-full text-center font-medium duration-200 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-amber-600 hover:bg-amber-50 md:hover:bg-transparent rounded-lg md:rounded-none"
+            class="py-3 px-4 w-full text-center font-medium duration-200 md:mr-3 lg:mr-8 md:w-auto md:py-0 md:px-0 transition-all hover:text-brand-300 hover:bg-brand-50 md:hover:bg-transparent rounded-lg md:rounded-none"
             >Our Team</a
           >
           <a
             href="https://haloring-titech.netlify.app/"
-            class="py-3 px-4 w-full text-center font-medium duration-200 md:w-auto md:py-0 md:px-0 transition-all hover:text-amber-600 hover:bg-amber-50 md:hover:bg-transparent rounded-lg md:rounded-none"
+            class="py-3 px-4 w-full text-center font-medium duration-200 md:w-auto md:py-0 md:px-0 transition-all hover:text-brand-300 hover:bg-brand-50 md:hover:bg-transparent rounded-lg md:rounded-none"
             >Documentation</a
           >
           <div
             class="flex flex-col w-full mt-4 pt-4 border-t border-gray-200 space-y-3 md:hidden"
           >
-            <a href="login.html" class="w-full py-3 px-4 font-medium text-center text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-all duration-200"
+            <a href="login.html" class="w-full py-3 px-4 font-medium text-center text-gray-700 hover:text-brand-300 hover:bg-brand-50 rounded-lg transition-all duration-200"
               >Log in</a
             >
             <a
               href="contactus.html"
-              class="w-full py-3 px-4 text-center text-white bg-amber-600 rounded-lg font-medium hover:bg-amber-700 transition-all duration-200 shadow-md hover:shadow-lg"
+              class="w-full py-3 px-4 text-center text-white bg-brand-600 rounded-lg font-medium hover:bg-brand-700 transition-all duration-200 shadow-md hover:shadow-lg"
               >Contact Us</a
             >
           </div>
@@ -342,12 +326,12 @@
         >
           <a
             href="login.html"
-            class="relative z-40 px-3 py-2 mr-0 text-sm font-medium text-amber-600 md:px-5 lg:text-white sm:mr-3 md:mt-0 hover:text-amber-700"
+            class="relative z-40 px-3 py-2 mr-0 text-sm font-medium text-brand-300 md:px-5 lg:text-white sm:mr-3 md:mt-0 hover:text-brand-600"
             >Login</a
           >
           <a
             href="contactus.html"
-            class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-medium leading-none text-white transition-all transition duration-300 bg-amber-600 rounded-md fold-bold lg:text-black-700 sm:w-full lg:shadow-none hover:bg-amber-700 hover:shadow-lg"
+            class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-medium leading-none text-white transition-all transition duration-300 bg-brand-300 rounded-md fold-bold lg:text-black-700 sm:w-full lg:shadow-none hover:bg-brand-600 hover:shadow-lg"
             >Contact Us</a
           >
           <svg
@@ -445,7 +429,7 @@
           <!-- Mobile Menu Button -->
           <button
             id="nav-mobile-btn"
-            class="flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all duration-200 border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+            class="flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all duration-200 border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
             aria-expanded="false"
             aria-controls="nav"
             aria-label="Toggle navigation menu"
@@ -485,7 +469,7 @@
         class="container flex flex-col items-center justify-between h-full max-w-6xl px-8 mx-auto -mt-32 lg:flex-row xl:px-0"
       >
         <div
-          class="z-30 flex flex-col items-center w-full max-w-xl pt-48 text-center lg:items-start lg:w-1/2 lg:pt-20 xl:pt-40 lg:text-left"
+          class="z-30 flex flex-col items-center w-full max-w-xl pt-48 text-center lg:items-start lg:w-1/2 lg:pt-20 xl:pt-40 lg:text-left text-content"
         >
           <h1
             class="relative mb-4 text-5xl font-black leading-tight text-gray-900 sm:text-6xl xl:mb-8"
@@ -495,7 +479,7 @@
           <h3
             class="relative text-2xl font-black leading-tight text-gray-900 sm:text-4xl xl:mb-6"
           >
-            Tap into <span class="text-amber-600">Convenience.</span>
+            Tap into <span class="text-brand-600">Convenience.</span>
           </h3>
           <p
             class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-xl lg:pr-20"
@@ -504,8 +488,8 @@
             experience.
           </p>
           <form id="waitlist-form" class="w-full max-w-md mb-4 relative">
-            <input type="email" placeholder="Enter your email" required class="px-4 py-4 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent w-full shadow-sm">
-            <button type="submit" class="absolute right-0 top-0 h-full px-6 font-medium text-white bg-amber-600 rounded-r-lg hover:bg-amber-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 ripple">
+            <input type="email" placeholder="Enter your email" required class="px-4 py-4 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent w-full shadow-sm">
+            <button type="submit" class="absolute right-0 top-0 h-full px-6 font-medium text-white bg-brand-600 rounded-r-lg hover:bg-brand-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 ripple">
               <span class="flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -515,13 +499,14 @@
             </button>
           </form>
 
-          <a href="#_" class="mt-2 text-sm text-gray-500 hover:text-amber-600 transition-colors duration-300">We're releasing the ring in the Philippines first, but stay tuned for overseas launches.</a>
+          <a href="#_" class="mt-2 text-sm text-gray-500 hover:text-brand-600 transition-colors duration-300">We're releasing the ring in the Philippines first, but stay tuned for overseas launches.</a>
 
           <svg
-            class="absolute left-0 max-w-md mt-24 -ml-64 left-svg"
+            class="absolute left-0 max-w-md mt-24 -ml-64 left-svg z-10 transform-gpu transition-transform duration-300"
             viewBox="0 0 423 423"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="pointer-events: none;"
           >
             <defs>
               <linearGradient
@@ -531,8 +516,8 @@
                 y2="0%"
                 id="linearGradient-1"
               >
-                <stop stop-color="#5C54DB" offset="0%" />
-                <stop stop-color="#6A82E7" offset="100%" />
+                <stop stop-color="#fabc6b" offset="0%" />
+                <stop stop-color="#f6ad4b" offset="100%" />
               </linearGradient>
               <filter
                 x="-9.3%"
@@ -614,7 +599,7 @@
         class="container flex flex-col items-center justify-between h-full max-w-6xl mx-auto"
       >
         <h2
-          class="my-5 text-base font-medium tracking-tight text-amber-600 uppercase"
+          class="my-5 text-base font-medium tracking-tight text-brand-600 uppercase"
         >
           Overview
         </h2>
@@ -745,7 +730,7 @@
               </p>
               <a
                 href="#_"
-                class="relative flex mt-4 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors duration-300"
+                class="relative flex mt-4 text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors duration-300"
                 >Learn More →</a
               >
             </div>
@@ -859,7 +844,7 @@
               <p class="relative mt-2 text-base text-center text-gray-600">The HaloPay app provides detailed expense reports, helping users monitor their financial habits and manage their budget effectively.</p>
               <a
                 href="#_"
-                class="relative flex mt-4 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors duration-300"
+                class="relative flex mt-4 text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors duration-300"
                 >Learn More →</a
               >
             </div>
@@ -976,7 +961,7 @@
               <p class="relative mt-2 text-base text-center text-gray-600">Immediate notifications for each transaction, helping users keep track of their spending in real time.</p>
               <a
                 href="#_"
-                class="relative flex mt-4 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors duration-300"
+                class="relative flex mt-4 text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors duration-300"
                 >Learn More →</a
               >
             </div>
@@ -998,7 +983,7 @@
         <div class="bg-white py-24 sm:py-1">
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:text-center">
-              <h2 class="text-base font-semibold leading-7 text-amber-600">Features</h2>
+              <h2 class="text-base font-semibold leading-7 text-brand-600">Features</h2>
               <p class="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">Features and Benefits</p>
               <p class="mt-6 text-lg leading-8 text-gray-700">Halo Ring offers a variety of practical features and benefits. Explore what they are and why they matter. Read on to see what makes Halo Ring exceptional.</p>
             </div>
@@ -1007,7 +992,7 @@
                 <!-- Travel Friendly -->
                 <div class="relative pl-16">
                   <dt class="text-base font-semibold leading-7 text-black">
-                    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-600 shadow-md">
+                    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 shadow-md">
                       <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
                       </svg>
@@ -1020,7 +1005,7 @@
                 <!-- SSL Certificates -->
                 <div class="relative pl-16">
                   <dt class="text-base font-semibold leading-7 text-black">
-                    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-600 shadow-md">
+                    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 shadow-md">
                       <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                       </svg>
@@ -1279,26 +1264,26 @@
 </div>
 
 <!-- Ring Size Guide Section -->
-<div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section">
+<div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-12 lg:py-16 animate-section">
   <div id="size-guide" class="container flex flex-col items-center h-full max-w-6xl mx-auto">
-    <h2 class="my-5 text-base font-medium tracking-tight text-amber-600 uppercase">
+    <h2 class="my-3 text-base font-medium tracking-tight text-brand-600 uppercase">
       Size Guide
     </h2>
     <h3 class="w-full max-w-2xl mt-2 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-5xl md:px-0">
       Find Your Perfect Fit
     </h3>
-    <p class="max-w-xl px-5 mt-6 text-xl text-center text-gray-700 mb-12">
+    <p class="max-w-xl px-5 mt-4 text-xl text-center text-gray-700 mb-8">
       Accurate sizing is crucial for comfort and functionality. Use our guide to find your perfect Halo Ring size.
     </p>
     
-    <div class="w-full bg-gray-50 rounded-xl p-6 md:p-10 shadow-lg max-w-4xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="w-full bg-gray-50 rounded-xl p-6 md:p-8 shadow-lg max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h4 class="text-xl font-semibold text-gray-900 mb-4">How to Measure Your Ring Size</h4>
           
           <div class="space-y-6">
             <div class="flex items-start">
-              <div class="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0 mt-1">1</div>
+              <div class="bg-brand-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0 mt-1">1</div>
               <div class="ml-4">
                 <h5 class="font-medium text-gray-900">Use an existing ring</h5>
                 <p class="text-gray-700 mt-1">Measure the inside diameter of a ring that fits the finger you plan to wear your Halo Ring on.</p>
@@ -1306,7 +1291,7 @@
             </div>
             
             <div class="flex items-start">
-              <div class="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0 mt-1">2</div>
+              <div class="bg-brand-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0 mt-1">2</div>
               <div class="ml-4">
                 <h5 class="font-medium text-gray-900">Measure your finger</h5>
                 <p class="text-gray-700 mt-1">Wrap a piece of string or paper around your finger, mark where it overlaps, and measure the length.</p>
@@ -1314,7 +1299,7 @@
             </div>
             
             <div class="flex items-start">
-              <div class="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0 mt-1">3</div>
+              <div class="bg-brand-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0 mt-1">3</div>
               <div class="ml-4">
                 <h5 class="font-medium text-gray-900">Time of day matters</h5>
                 <p class="text-gray-700 mt-1">Measure your finger at the end of the day when it's at its largest size.</p>
@@ -1322,8 +1307,8 @@
             </div>
           </div>
           
-          <div class="mt-8">
-            <button class="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-500 transition-colors font-medium">Download Printable Size Guide</button>
+          <div class="mt-6">
+            <button class="px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-500 transition-colors font-medium">Download Printable Size Guide</button>
           </div>
         </div>
         
@@ -1387,7 +1372,7 @@
             </table>
           </div>
           
-          <p class="mt-6 text-sm text-gray-600">Not sure about your size? Contact our customer support team for assistance or order our free sizing kit.</p>
+          <p class="mt-4 text-sm text-gray-600">Not sure about your size? Contact our customer support team for assistance or order our free sizing kit.</p>
         </div>
       </div>
     </div>
@@ -1395,84 +1380,75 @@
 </div>
 <!-- End Ring Size Guide Section -->
 
-<div
-    class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
-  >
-</div>
-
-<div
-    class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
-  >
 <!-- Start Our Team -->
 <div
   id="ourteam"
-  class="flex items-center justify-center w-full px-8 py-10 border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0 animate-section"
+  class="flex items-center justify-center w-full px-8 py-10 border-t border-gray-200 md:py-12 lg:py-16 animate-section"
 >
   <div class="max-w-7xl mx-auto p-6 bg-white rounded-lg border border-gray-100 shadow-lg">
-    <div class="text-center mb-12">
-      <p class="my-5 text-base font-medium tracking-tight text-amber-600 uppercase">
+    <div class="text-center mb-8">
+      <p class="my-3 text-base font-medium tracking-tight text-brand-600 uppercase">
         Who We Are
       </p>
       <h2
-        class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl"
+        class="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl"
       >
         Meet Our Team
       </h2>
-      <br>
-      <p class="text-gray-600 max-w-3xl mx-auto">Our team of experts in engineering, design, and security came together to create products that not only solve everyday problems but do so with elegance and reliability.
+      <p class="mt-4 text-gray-600 max-w-3xl mx-auto">Our team of experts in engineering, design, and security came together to create products that not only solve everyday problems but do so with elegance and reliability.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-        <div class="w-24 h-24 mx-auto border-4 border-amber-600 rounded-full overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="text-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w-20 h-20 mx-auto border-3 border-brand-600 rounded-full overflow-hidden">
           <picture>
             <source srcset="./img/chico.png" type="image/png">
             <img class="w-full h-full rounded-full object-cover" src="./img/chico.png" loading="lazy" alt="Matt Angelo Chico">
           </picture>
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-amber-600">Matt Angelo Chico</h3>
-        <p class="text-gray-500 font-medium">Engineering Manager/Director</p>
-        <p class="mt-2 text-gray-600">
-          I oversee the overall engineering processes, manage the development and production of the Halo Ring, ensure product quality and innovation.
+        <h3 class="mt-3 text-lg font-semibold text-brand-600">Matt Angelo Chico</h3>
+        <p class="text-gray-500 font-medium text-sm">Engineering Manager/Director</p>
+        <p class="mt-2 text-sm text-gray-600">
+          I oversee the engineering processes, manage development and production of the Halo Ring, ensuring quality and innovation.
         </p>
       </div>
-      <div class="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-        <div class="w-24 h-24 mx-auto border-4 border-amber-600 rounded-full overflow-hidden">
+      <div class="text-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w-20 h-20 mx-auto border-3 border-brand-600 rounded-full overflow-hidden">
           <picture>
             <source srcset="./img/nool.png" type="image/png">
-            <img class="w-full h-full rounded-full object-cover" src="./img/nool.png" loading="lazy" alt="Mark Angelo Nool">
+            <img class="w-full h-full rounded-full object-cover" src="./img/nool.png" loading="lazy" alt="Angelo Nool">
           </picture>
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-amber-600">Mark Angelo Nool</h3>
-        <p class="text-gray-500 font-medium">Network Security Engineer</p>
-        <p class="mt-2 text-gray-600">
-          Responsible for the design and implementation of robust security protocols for the Halo Ring and HaloPay app, ensuring data protection and preventing unauthorized access.
+        <h3 class="mt-3 text-lg font-semibold text-brand-600">Mark Angelo Nool</h3>
+        <p class="text-gray-500 font-medium text-sm">Software Engineer</p>
+        <p class="mt-2 text-sm text-gray-600">
+          I lead the development of the HaloPay app and ensure seamless integration with the Halo Ring.
         </p>
       </div>
-      <div class="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-        <div class="w-24 h-24 mx-auto border-4 border-amber-600 rounded-full overflow-hidden">
+      <div class="text-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w-20 h-20 mx-auto border-3 border-brand-600 rounded-full overflow-hidden">
           <picture>
             <source srcset="./img/ireneo.png" type="image/png">
             <img class="w-full h-full rounded-full object-cover" src="./img/ireneo.png" loading="lazy" alt="Nathaniel Ireneo">
           </picture>
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-amber-600">Nathaniel Ireneo</h3>
-        <p class="text-gray-500 font-medium">Electronics Engineer</p>
-        <p class="mt-2 text-gray-600">
-          I develop and maintain the electronic components of the Halo Ring, ensuring the device's functionality and durability.
+        <h3 class="mt-3 text-lg font-semibold text-brand-600">Nathaniel Ireneo</h3>
+        <p class="text-gray-500 font-medium text-sm">Electronics Engineer</p>
+        <p class="mt-2 text-sm text-gray-600">
+          I develop and maintain the electronic components of the Halo Ring, ensuring functionality and durability.
         </p>
       </div>
-      <div class="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-        <div class="w-24 h-24 mx-auto border-4 border-amber-600 rounded-full overflow-hidden">
+      <div class="text-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w-20 h-20 mx-auto border-3 border-brand-600 rounded-full overflow-hidden">
           <picture>
             <source srcset="./img/cajucom.png" type="image/png">
             <img class="w-full h-full rounded-full object-cover" src="./img/cajucom.png" loading="lazy" alt="Mitchelle Cajucom">
           </picture>
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-amber-600">Mitchelle Cajucom</h3>
-        <p class="text-gray-500 font-medium">Field Service Engineer</p>
-        <p class="mt-2 text-gray-600">
-          I provide technical support and maintenance for the Halo Ring, handle customer service inquiries, and assist with troubleshooting issues.
+        <h3 class="mt-3 text-lg font-semibold text-brand-600">Mitchelle Cajucom</h3>
+        <p class="text-gray-500 font-medium text-sm">Field Service Engineer</p>
+        <p class="mt-2 text-sm text-gray-600">
+          I provide technical support and maintenance for the Halo Ring, handling customer service and troubleshooting.
         </p>
       </div>
     </div>
@@ -1485,7 +1461,7 @@
 <section class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 animate-section">
   <div class="container mx-auto max-w-6xl">
     <div class="text-center mb-8 animate-item">
-      <h2 class="text-base font-semibold text-amber-600 uppercase tracking-wider">Our Growth</h2>
+      <h2 class="text-base font-semibold text-brand-600 uppercase tracking-wider">Our Growth</h2>
       <p class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">Join Our Community</p>
     </div>
     
@@ -1493,7 +1469,7 @@
       <!-- Waitlist Members -->
       <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md animate-item">
         <div class="flex justify-center">
-          <div class="text-amber-600 mb-4">
+          <div class="text-brand-600 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
@@ -1506,7 +1482,7 @@
       <!-- Countries -->
       <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md">
         <div class="flex justify-center">
-          <div class="text-amber-600 mb-4">
+          <div class="text-brand-600 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -1519,7 +1495,7 @@
       <!-- Partnerships -->
       <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md">
         <div class="flex justify-center">
-          <div class="text-amber-600 mb-4">
+          <div class="text-brand-600 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
             </svg>
@@ -1532,7 +1508,7 @@
       <!-- Launch Date -->
       <div class="counter-item p-6 border border-gray-100 rounded-lg shadow-sm transform transition-transform hover:scale-105 hover:shadow-md">
         <div class="flex justify-center">
-          <div class="text-amber-600 mb-4">
+          <div class="text-brand-600 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
@@ -1593,7 +1569,7 @@
 <section id="faq" class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0">
   <div class="container mx-auto max-w-4xl">
     <div class="text-center mb-16">
-      <h2 class="text-base font-semibold leading-7 text-amber-600">Frequently Asked Questions</h2>
+      <h2 class="text-base font-semibold leading-7 text-brand-600">Frequently Asked Questions</h2>
       <p class="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">Common Questions About Halo Ring</p>
       <p class="mt-6 text-lg leading-8 text-gray-700">Everything you need to know about the Halo Ring and how it works.</p>
     </div>
@@ -1603,7 +1579,7 @@
       <div class="border border-gray-200 rounded-lg overflow-hidden">
         <button class="faq-toggle w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors duration-150" onclick="toggleFAQ(this)">
           <span class="text-lg font-semibold text-gray-900">How does the Halo Ring work?</span>
-          <svg class="faq-icon h-6 w-6 text-amber-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="faq-icon h-6 w-6 text-brand-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
@@ -1616,7 +1592,7 @@
       <div class="border border-gray-200 rounded-lg overflow-hidden">
         <button class="faq-toggle w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors duration-150" onclick="toggleFAQ(this)">
           <span class="text-lg font-semibold text-gray-900">Is the Halo Ring waterproof?</span>
-          <svg class="faq-icon h-6 w-6 text-amber-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="faq-icon h-6 w-6 text-brand-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
@@ -1629,7 +1605,7 @@
       <div class="border border-gray-200 rounded-lg overflow-hidden animate-item">
         <button class="faq-toggle w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors duration-150" onclick="toggleFAQ(this)">
           <span class="text-lg font-semibold text-gray-900">How do I charge my Halo Ring?</span>
-          <svg class="faq-icon h-6 w-6 text-amber-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="faq-icon h-6 w-6 text-brand-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
@@ -1642,7 +1618,7 @@
       <div class="border border-gray-200 rounded-lg overflow-hidden animate-item">
         <button class="faq-toggle w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors duration-150" onclick="toggleFAQ(this)">
           <span class="text-lg font-semibold text-gray-900">Is the Halo Ring secure for payments?</span>
-          <svg class="faq-icon h-6 w-6 text-amber-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="faq-icon h-6 w-6 text-brand-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
@@ -1655,7 +1631,7 @@
       <div class="border border-gray-200 rounded-lg overflow-hidden animate-item">
         <button class="faq-toggle w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors duration-150" onclick="toggleFAQ(this)">
           <span class="text-lg font-semibold text-gray-900">What payment methods does the Halo Ring support?</span>
-          <svg class="faq-icon h-6 w-6 text-amber-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="faq-icon h-6 w-6 text-brand-600 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
@@ -1729,19 +1705,19 @@
             <!-- Social Links -->
             <div class="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
-                 class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-amber-600 hover:text-white transition-all duration-300">
+                 class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-brand-600 hover:text-white transition-all duration-300">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                 class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-amber-600 hover:text-white transition-all duration-300">
+                 class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-brand-600 hover:text-white transition-all duration-300">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                 </svg>
               </a>
               <a href="https://github.com/NoolAngelo" target="_blank" rel="noopener noreferrer"
-                 class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-amber-600 hover:text-white transition-all duration-300">
+                 class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-brand-600 hover:text-white transition-all duration-300">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
@@ -1753,10 +1729,10 @@
           <div>
             <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Product</h3>
             <ul class="space-y-3">
-              <li><a href="#features" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Features</a></li>
-              <li><a href="#faq" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">FAQ</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Pricing</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Integrations</a></li>
+              <li><a href="#features" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Features</a></li>
+              <li><a href="#faq" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">FAQ</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Pricing</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Integrations</a></li>
             </ul>
           </div>
 
@@ -1764,10 +1740,10 @@
           <div>
             <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Company</h3>
             <ul class="space-y-3">
-              <li><a href="contactus.html" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Contact Us</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">About</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Privacy Policy</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Terms of Service</a></li>
+              <li><a href="contactus.html" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Contact Us</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">About</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Privacy Policy</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Terms of Service</a></li>
             </ul>
           </div>
 
@@ -1775,10 +1751,10 @@
           <div>
             <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Resources</h3>
             <ul class="space-y-3">
-              <li><a href="https://haloring-titech.netlify.app/" target="_blank" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Documentation</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Support</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Blog</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors duration-200">Community</a></li>
+              <li><a href="https://haloring-titech.netlify.app/" target="_blank" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Documentation</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Support</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Blog</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-brand-600 transition-colors duration-200">Community</a></li>
             </ul>
           </div>
         </div>
@@ -1790,7 +1766,7 @@
               © 2024 Halo Ring - TiTech. All rights reserved.
             </p>
             <p class="text-gray-400 text-sm mt-4 md:mt-0">
-              Distributed by <span class="text-amber-600 font-medium">TiTech</span>
+              Distributed by <span class="text-brand-600 font-medium">TiTech</span>
             </p>
           </div>
         </div>
@@ -1859,9 +1835,9 @@
     <button 
       id="back-to-top" 
       aria-label="Back to top" 
-      class="fixed bottom-8 left-8 z-[9999] w-12 h-12 bg-white/80 backdrop-blur-md border border-gray-200/50 rounded-full shadow-lg opacity-0 invisible transition-all duration-500 ease-out transform translate-y-8 hover:bg-white hover:shadow-xl hover:scale-110 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:ring-offset-2 group"
+      class="fixed bottom-8 left-8 z-[9999] w-12 h-12 bg-white/80 backdrop-blur-md border border-gray-200/50 rounded-full shadow-lg opacity-0 invisible transition-all duration-500 ease-out transform translate-y-8 hover:bg-white hover:shadow-xl hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:ring-offset-2 group"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto text-gray-600 transition-all duration-300 group-hover:text-amber-600 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto text-gray-600 transition-all duration-300 group-hover:text-brand-600 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
       </svg>
     </button>
@@ -1871,8 +1847,8 @@
       <div class="flex items-start space-x-4">
         <!-- Cookie Icon -->
         <div class="flex-shrink-0">
-          <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
-            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
             </svg>
           </div>
@@ -1883,13 +1859,13 @@
           <h3 class="text-sm font-semibold text-gray-900 mb-2">Cookie Settings</h3>
           <p class="text-xs text-gray-600 mb-4 leading-relaxed">
             We use cookies to enhance your experience. By continuing to browse, you agree to our 
-            <a href="#" class="text-amber-600 hover:text-amber-700 font-medium">Cookie Policy</a>.
+            <a href="#" class="text-brand-600 hover:text-brand-700 font-medium">Cookie Policy</a>.
           </p>
           
           <!-- Action Buttons -->
           <div class="flex space-x-2">
             <button id="cookie-accept" 
-                    class="flex-1 bg-amber-600 hover:bg-amber-700 text-white text-xs font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition-all duration-200 transform hover:scale-[1.02]">
+                    class="flex-1 bg-brand-600 hover:bg-brand-700 text-white text-xs font-medium py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition-all duration-200 transform hover:scale-[1.02]">
               Accept All
             </button>
             <button id="cookie-decline" 
@@ -2091,7 +2067,7 @@
         });
         
         // Add ripple effect to buttons
-        const buttons = document.querySelectorAll('button:not(.faq-toggle), .button, [type="submit"], a.bg-amber-600, a.bg-gray-800');
+        const buttons = document.querySelectorAll('button:not(.faq-toggle), .button, [type="submit"], a.bg-brand-600, a.bg-gray-800');
         
         buttons.forEach(button => {
           if (!button.classList.contains('ripple')) {

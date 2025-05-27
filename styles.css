@@ -636,9 +636,49 @@ body.dark-mode .dark-mode-toggle:hover {
 }
 
 /* Mobile navigation styles */
-@media (max-width: 1520px) {
+@media (max-width: 1280px) {
   .left-svg {
-    display: none;
+    display: none !important;
+  }
+}
+
+/* Additional responsive control for triangle SVG */
+@media (min-width: 1281px) and (max-width: 1520px) {
+  .left-svg {
+    transform: scale(0.8);
+    transform-origin: left center;
+    margin-left: -48px;
+  }
+}
+
+@media (min-width: 1521px) {
+  .left-svg {
+    transform-origin: left center;
+    transform: scale(1);
+    margin-left: 0;
+  }
+}
+
+/* Improve mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1.text-4xl {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+
+  h2.text-3xl {
+    font-size: 1.75rem !important;
+    line-height: 1.3;
+  }
+
+  .py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
@@ -1118,4 +1158,159 @@ img {
   h2.text-3xl {
     font-size: 1.875rem !important;
   }
+}
+
+/* Responsive layout improvements */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .text-content {
+    position: relative;
+    z-index: 20;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+/* Prevent text overlap with SVG */
+.left-svg {
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (min-width: 1281px) {
+  .left-svg {
+    transform: translateX(-5%);
+  }
+
+  .container:hover .left-svg {
+    transform: translateX(-8%) scale(1.02);
+  }
+}
+
+@media (max-width: 1280px) {
+  .left-svg {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .left-svg {
+    display: none;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .text-content {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Improve text readability */
+.text-content {
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Hero section responsive improvements */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .text-content {
+    padding-top: 2rem;
+  }
+
+  h1.text-5xl {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  h3.text-2xl {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .left-svg {
+    opacity: 0.3;
+    transform: translateX(-30%) scale(0.7);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .text-content {
+    padding-top: 1rem;
+  }
+
+  h1.text-5xl {
+    font-size: 2rem;
+  }
+
+  h3.text-2xl {
+    font-size: 1.25rem;
+  }
+
+  .left-svg {
+    display: none;
+  }
+
+  .lg\:w-1\/2 {
+    width: 100%;
+  }
+
+  .lg\:flex-row {
+    flex-direction: column;
+  }
+
+  .lg\:items-start {
+    align-items: center;
+  }
+
+  .lg\:text-left {
+    text-align: center;
+  }
+}
+
+/* Improve image responsiveness */
+.lg\:h-full {
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+/* Add smooth transitions */
+.text-content,
+.left-svg,
+img {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Prevent content shift on hover */
+.container:hover .text-content {
+  transform: none;
 }
