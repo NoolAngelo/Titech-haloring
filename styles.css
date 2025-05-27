@@ -1191,6 +1191,7 @@ img {
   transition: transform 0.3s ease-in-out;
   will-change: transform;
   backface-visibility: hidden;
+  z-index: -1;
 }
 
 @media (min-width: 1281px) {
@@ -1205,8 +1206,8 @@ img {
 
 @media (max-width: 1280px) {
   .left-svg {
-    opacity: 0.5;
-    transform: translateX(-50%) scale(0.8);
+    opacity: 0.15;
+    transform: translateX(-70%) scale(0.6);
   }
 }
 
@@ -1222,6 +1223,26 @@ img {
   .text-content {
     width: 100%;
     max-width: 100%;
+    padding-top: 1rem;
+    position: relative;
+    z-index: 20;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    position: relative;
+    z-index: 10;
+  }
+
+  input,
+  button {
+    position: relative;
+    z-index: 20;
   }
 }
 
@@ -1313,4 +1334,21 @@ img {
 /* Prevent content shift on hover */
 .container:hover .text-content {
   transform: none;
+}
+
+/* Ensure text is always readable */
+.text-content {
+  position: relative;
+  z-index: 20;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  position: relative;
+  z-index: 10;
 }
